@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-void matmult_nat(int m, int n, int k, double **A,double **B,double **C){
+void matmult_mkn(int m, int n, int k, double **A,double **B,double **C){
 /*
     int m = 3;
     int n = 2;

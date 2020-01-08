@@ -11,7 +11,7 @@
 #BSUB -q hpcintro
 #BSUB -n 1
 #BSUB -R "rusage[mem=2048]"
-#BSUB -W 10:00
+#BSUB -W 00:10
 
 module load studio
 
