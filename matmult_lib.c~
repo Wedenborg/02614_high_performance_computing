@@ -19,12 +19,12 @@
 */
 
 void matmult_lib (int m, int n, int k, double **A, double **B, double **C){
-  /*
+
     int m = 2, n=2, k=2;
     double A[2][2] = {{2,2},{2,2}};
     double B[2][2] = {{1,1},{1,1}};
     double C[2][2] = {{0}};
-  */
+
     int TRANS = 111;
     int order = 101;
 
