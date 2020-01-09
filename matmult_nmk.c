@@ -14,6 +14,7 @@ void matmult_nmk(int m, int n, int k, double **A,double **B,double **C){
 */
 
     
+    double C[m][n] = {{0}};
     for(int j=0; j<n;j++){
         for (int i = 0; i<m;i++){
             for (int h= 0;h<k;h++){
