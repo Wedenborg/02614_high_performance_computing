@@ -1,0 +1,92 @@
+Loaded module: studio/12u6
+Creating experiment database collector.5037030.er (Process ID: 28480) ...
+User defined signal 2
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-21-46>
+Subject: Job 5037030: <collector> in cluster <dcc> Exited
+
+Job <collector> was submitted from host <n-62-27-18> by user <s164535> in cluster <dcc> at Thu Jan  9 10:32:45 2020
+Job was executed on host(s) <n-62-21-46>, in queue <hpcintro>, as user <s164535> in cluster <dcc> at Thu Jan  9 10:32:46 2020
+</zhome/1e/7/117649> was used as the home directory.
+</zhome/1e/7/117649/Documents/02614> was used as the working directory.
+Started at Thu Jan  9 10:32:46 2020
+Terminated at Thu Jan  9 11:03:03 2020
+Results reported at Thu Jan  9 11:03:03 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+# 02614 - High-Performance Computing, January 2018
+# 
+# batch script to run collect on a decidated server in the hpcintro
+# queue
+#
+# Author: Bernd Dammann <bd@cc.dtu.dk>
+#
+#BSUB -J collector
+#BSUB -o collector_500_%J.out
+#BSUB -q hpcintro
+#BSUB -n 1
+#BSUB -R "rusage[mem=2048]"
+#BSUB -W 00:30
+
+module load studio
+
+# define the driver name to use
+# valid values: matmult_c.studio, matmult_f.studio, matmult_c.gcc or
+# matmult_f.gcc
+#
+EXECUTABLE=matmult_c.gcc
+
+# define the mkn values in the MKN variable
+#
+MKN="500 500 500"
+
+# define the permutation type in PERM
+#
+PERM="per"
+
+# uncomment and set a reasonable BLKSIZE for the blk version
+#
+BLKSIZE=1
+
+# define the max no. of iterations the driver should use - adjust to
+# get a reasonable run time.  You can get an estimate by trying this
+# on the command line, i.e. "MFLOPS_MAX_IT=10 ./matmult_...." for the
+# problem size you want to analyze.
+#
+export MFLOPS_MAX_IT=1000
+export MATMULT_COMPARE=1
+
+# experiment name 
+#
+JID=${LSB_JOBID}
+EXPOUT="$LSB_JOBNAME.${JID}.er"
+
+# uncomment the HWCOUNT line, if you want to use hardware counters
+# define an option string for the harwdware counters (see output of
+
+(... more ...)
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time :                                   1811.00 sec.
+    Max Memory :                                 32 MB
+    Average Memory :                             32.00 MB
+    Total Requested Memory :                     2048.00 MB
+    Delta Memory :                               2016.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   1816 sec.
+    Turnaround time :                            1818 sec.
+
+The output (if any) is above this job summary.
+

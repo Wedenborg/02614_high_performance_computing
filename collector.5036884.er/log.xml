@@ -1,0 +1,674 @@
+<experiment version="12.4">
+<collector>Studio 12.6 Performance Analyzer 12.6 Linux_x64 2017/05/24</collector>
+</experiment>
+<system hostname="n-62-21-39" arch="x86_64" os="Linux 3.10.0-1062.7.1.el7.x86_64" pagesz="4096" npages="65891578">
+  <cpu id="0" clk="2499"/>
+  <cpu id="1" clk="2200"/>
+  <cpu id="2" clk="2499"/>
+  <cpu id="3" clk="1199"/>
+  <cpu id="4" clk="1199"/>
+  <cpu id="5" clk="1199"/>
+  <cpu id="6" clk="1202"/>
+  <cpu id="7" clk="1274"/>
+  <cpu id="8" clk="1199"/>
+  <cpu id="9" clk="1199"/>
+  <cpu id="10" clk="1200"/>
+  <cpu id="11" clk="1397"/>
+  <cpu id="12" clk="1199"/>
+  <cpu id="13" clk="1199"/>
+  <cpu id="14" clk="1204"/>
+  <cpu id="15" clk="1204"/>
+  <cpu id="16" clk="1204"/>
+  <cpu id="17" clk="1213"/>
+  <cpu id="18" clk="1199"/>
+  <cpu id="19" clk="1199"/>
+  <cpu id="20" clk="1199"/>
+  <cpu id="21" clk="1204"/>
+  <cpu id="22" clk="1204"/>
+  <cpu id="23" clk="1394"/>
+</system>
+<process pid="17090"></process>
+<process ppid="16961"></process>
+<process pgrp="16956"></process>
+<process sid="6301"></process>
+<process cwd="/zhome/1e/7/117649/Documents/02614"></process>
+<process wsize="64"></process>
+<process stackbase="0x7ffc85951060"></process>
+<process>./matmult_c.gcc per 1000 1000 1000 1</process>
+<profile name="profile" ptimer="10007" numstates="1">
+  <profdata fname="profile"/>
+  <profpckt kind="8" uname="Clock profiling data">
+    <field name="LWPID" uname="Lightweight process id" offset="8" type="INT64"/>
+    <field name="THRID" uname="Thread number" offset="16" type="INT64"/>
+    <field name="CPUID" uname="CPU id" offset="24" type="INT32"/>
+    <field name="TSTAMP" uname="High resolution timestamp" offset="32" type="INT64"/>
+    <field name="FRINFO" offset="40" type="INT64"/>
+    <field name="MSTATE" uname="Thread state" offset="48" type="INT32"/>
+    <field name="NTICK" uname="Duration" offset="52" type="INT32"/>
+  </profpckt>
+</profile>
+<profdata fname="hwcounters"/>
+<profpckt kind="3" uname="Hardware counter profiling data">
+    <field name="LWPID" uname="Lightweight process id" offset="8" type="INT64"/>
+    <field name="THRID" uname="Thread number" offset="16" type="INT64"/>
+    <field name="CPUID" uname="CPU id" offset="24" type="INT32"/>
+    <field name="TSTAMP" uname="High resolution timestamp" offset="32" type="INT64"/>
+    <field name="FRINFO" offset="40" type="INT64"/>
+    <field name="HWCTAG" uname="Hardware counter index" offset="48" type="INT32"/>
+    <field name="HWCINT" uname="Hardware counter interval" offset="56" type="INT64"/>
+</profpckt>
+<profile name="hwcounter" cpuver="2070" hwcname="dch" int_name="mem_load_uops_retired.l1_hit" interval="10010001" tag="0" memop="0"/>
+<profile name="hwcounter" cpuver="2070" hwcname="dcm" int_name="mem_load_uops_retired.l1_miss" interval="3201001" tag="1" memop="0"/>
+<profile name="hwcounter" cpuver="2070" hwcname="l2h" int_name="mem_load_uops_retired.l2_hit" interval="3201001" tag="2" memop="0"/>
+<profile name="hwcounter" cpuver="2070" hwcname="l2m" int_name="mem_load_uops_retired.l2_miss" interval="1001001" tag="3" memop="0"/>
+<dataptr name="frameinfo" format="binary"/>
+<setting sample_period="1"/>
+<setting linetrace="fork|exec|combo"/>
+<setting collenv="SP_COLLECTOR_FOUNDER=0"/>
+<setting collenv="SP_COLLECTOR_ORIGIN_COLLECT=1"/>
+<event kind="run" tstamp="2835276.889102647" time="1578560782" tm_zone="-3600"/>
+<event kind="sample" tstamp="0.000071831" id="0" label="collector_open_experiment"/>
+<event kind="sample" tstamp="1.004313830" id="1" label="periodic"/>
+<event kind="sample" tstamp="2.008312365" id="2" label="periodic"/>
+<event kind="sample" tstamp="3.001306948" id="3" label="periodic"/>
+<event kind="sample" tstamp="4.004304658" id="4" label="periodic"/>
+<event kind="sample" tstamp="5.007301598" id="5" label="periodic"/>
+<event kind="sample" tstamp="6.001298222" id="6" label="periodic"/>
+<event kind="sample" tstamp="7.003293933" id="7" label="periodic"/>
+<event kind="sample" tstamp="8.000291151" id="8" label="periodic"/>
+<event kind="sample" tstamp="9.002287332" id="9" label="periodic"/>
+<event kind="sample" tstamp="10.005283158" id="10" label="periodic"/>
+<event kind="sample" tstamp="11.009277848" id="11" label="periodic"/>
+<event kind="sample" tstamp="12.005274843" id="12" label="periodic"/>
+<event kind="sample" tstamp="13.008273513" id="13" label="periodic"/>
+<event kind="sample" tstamp="14.002269207" id="14" label="periodic"/>
+<event kind="sample" tstamp="15.004267775" id="15" label="periodic"/>
+<event kind="sample" tstamp="16.001261048" id="16" label="periodic"/>
+<event kind="sample" tstamp="17.003256978" id="17" label="periodic"/>
+<event kind="sample" tstamp="18.008258772" id="18" label="periodic"/>
+<event kind="sample" tstamp="19.000251375" id="19" label="periodic"/>
+<event kind="sample" tstamp="20.002247373" id="20" label="periodic"/>
+<event kind="sample" tstamp="21.006244695" id="21" label="periodic"/>
+<event kind="sample" tstamp="22.000240191" id="22" label="periodic"/>
+<event kind="sample" tstamp="23.002237550" id="23" label="periodic"/>
+<event kind="sample" tstamp="24.001234117" id="24" label="periodic"/>
+<event kind="sample" tstamp="25.003229412" id="25" label="periodic"/>
+<event kind="sample" tstamp="26.007225977" id="26" label="periodic"/>
+<event kind="sample" tstamp="27.000223737" id="27" label="periodic"/>
+<event kind="sample" tstamp="28.003218472" id="28" label="periodic"/>
+<event kind="sample" tstamp="29.006217235" id="29" label="periodic"/>
+<event kind="sample" tstamp="30.001212944" id="30" label="periodic"/>
+<event kind="sample" tstamp="31.003210488" id="31" label="periodic"/>
+<event kind="sample" tstamp="32.000205947" id="32" label="periodic"/>
+<event kind="sample" tstamp="33.002200805" id="33" label="periodic"/>
+<event kind="sample" tstamp="34.005199404" id="34" label="periodic"/>
+<event kind="sample" tstamp="35.009194900" id="35" label="periodic"/>
+<event kind="sample" tstamp="36.005191073" id="36" label="periodic"/>
+<event kind="sample" tstamp="37.008186811" id="37" label="periodic"/>
+<event kind="sample" tstamp="38.001183207" id="38" label="periodic"/>
+<event kind="sample" tstamp="39.007180883" id="39" label="periodic"/>
+<event kind="sample" tstamp="40.000177732" id="40" label="periodic"/>
+<event kind="sample" tstamp="41.003173711" id="41" label="periodic"/>
+<event kind="sample" tstamp="42.007169019" id="42" label="periodic"/>
+<event kind="sample" tstamp="43.000166549" id="43" label="periodic"/>
+<event kind="sample" tstamp="44.002163114" id="44" label="periodic"/>
+<event kind="sample" tstamp="45.006161432" id="45" label="periodic"/>
+<event kind="sample" tstamp="46.009155400" id="46" label="periodic"/>
+<event kind="sample" tstamp="47.006152926" id="47" label="periodic"/>
+<event kind="sample" tstamp="48.002148918" id="48" label="periodic"/>
+<event kind="sample" tstamp="49.005144495" id="49" label="periodic"/>
+<event kind="sample" tstamp="50.008141976" id="50" label="periodic"/>
+<event kind="sample" tstamp="51.002137985" id="51" label="periodic"/>
+<event kind="sample" tstamp="52.004135684" id="52" label="periodic"/>
+<event kind="sample" tstamp="53.008131947" id="53" label="periodic"/>
+<event kind="sample" tstamp="54.002127108" id="54" label="periodic"/>
+<event kind="sample" tstamp="55.008125347" id="55" label="periodic"/>
+<event kind="sample" tstamp="56.000121003" id="56" label="periodic"/>
+<event kind="sample" tstamp="57.003119055" id="57" label="periodic"/>
+<event kind="sample" tstamp="58.007113237" id="58" label="periodic"/>
+<event kind="sample" tstamp="59.003108917" id="59" label="periodic"/>
+<event kind="sample" tstamp="60.006106037" id="60" label="periodic"/>
+<event kind="sample" tstamp="61.009104176" id="61" label="periodic"/>
+<event kind="sample" tstamp="62.003099395" id="62" label="periodic"/>
+<event kind="sample" tstamp="63.009098378" id="63" label="periodic"/>
+<event kind="sample" tstamp="64.002092369" id="64" label="periodic"/>
+<event kind="sample" tstamp="65.005092914" id="65" label="periodic"/>
+<event kind="sample" tstamp="66.009088643" id="66" label="periodic"/>
+<event kind="sample" tstamp="67.002081689" id="67" label="periodic"/>
+<event kind="sample" tstamp="68.005078792" id="68" label="periodic"/>
+<event kind="sample" tstamp="69.008074769" id="69" label="periodic"/>
+<event kind="sample" tstamp="70.004074661" id="70" label="periodic"/>
+<event kind="sample" tstamp="71.000067386" id="71" label="periodic"/>
+<event kind="sample" tstamp="72.003063976" id="72" label="periodic"/>
+<event kind="sample" tstamp="73.006060502" id="73" label="periodic"/>
+<event kind="sample" tstamp="74.000056020" id="74" label="periodic"/>
+<event kind="sample" tstamp="75.002053317" id="75" label="periodic"/>
+<event kind="sample" tstamp="76.006050743" id="76" label="periodic"/>
+<event kind="sample" tstamp="77.009049470" id="77" label="periodic"/>
+<event kind="sample" tstamp="78.006041065" id="78" label="periodic"/>
+<event kind="sample" tstamp="79.008038733" id="79" label="periodic"/>
+<event kind="sample" tstamp="80.002035565" id="80" label="periodic"/>
+<event kind="sample" tstamp="81.004033033" id="81" label="periodic"/>
+<event kind="sample" tstamp="82.008028822" id="82" label="periodic"/>
+<event kind="sample" tstamp="83.004026733" id="83" label="periodic"/>
+<event kind="sample" tstamp="84.006020778" id="84" label="periodic"/>
+<event kind="sample" tstamp="85.000019098" id="85" label="periodic"/>
+<event kind="sample" tstamp="86.006014990" id="86" label="periodic"/>
+<event kind="sample" tstamp="87.008009451" id="87" label="periodic"/>
+<event kind="sample" tstamp="88.002006903" id="88" label="periodic"/>
+<event kind="sample" tstamp="89.004004427" id="89" label="periodic"/>
+<event kind="sample" tstamp="90.007999725" id="90" label="periodic"/>
+<event kind="sample" tstamp="91.000997125" id="91" label="periodic"/>
+<event kind="sample" tstamp="92.003992752" id="92" label="periodic"/>
+<event kind="sample" tstamp="93.006989521" id="93" label="periodic"/>
+<event kind="sample" tstamp="94.003986083" id="94" label="periodic"/>
+<event kind="sample" tstamp="95.008982093" id="95" label="periodic"/>
+<event kind="sample" tstamp="96.001978940" id="96" label="periodic"/>
+<event kind="sample" tstamp="97.004975971" id="97" label="periodic"/>
+<event kind="sample" tstamp="98.007972870" id="98" label="periodic"/>
+<event kind="sample" tstamp="99.001971903" id="99" label="periodic"/>
+<event kind="sample" tstamp="100.003964297" id="100" label="periodic"/>
+<event kind="sample" tstamp="101.007961461" id="101" label="periodic"/>
+<event kind="sample" tstamp="102.003958366" id="102" label="periodic"/>
+<event kind="sample" tstamp="103.005955080" id="103" label="periodic"/>
+<event kind="sample" tstamp="104.009949979" id="104" label="periodic"/>
+<event kind="sample" tstamp="105.002947956" id="105" label="periodic"/>
+<event kind="sample" tstamp="106.008942824" id="106" label="periodic"/>
+<event kind="sample" tstamp="107.001940025" id="107" label="periodic"/>
+<event kind="sample" tstamp="108.004935866" id="108" label="periodic"/>
+<event kind="sample" tstamp="109.001933674" id="109" label="periodic"/>
+<event kind="sample" tstamp="110.003928980" id="110" label="periodic"/>
+<event kind="sample" tstamp="111.007928248" id="111" label="periodic"/>
+<event kind="sample" tstamp="112.000922371" id="112" label="periodic"/>
+<event kind="sample" tstamp="113.003920188" id="113" label="periodic"/>
+<event kind="sample" tstamp="114.006921154" id="114" label="periodic"/>
+<event kind="sample" tstamp="115.000915675" id="115" label="periodic"/>
+<event kind="sample" tstamp="116.003910507" id="116" label="periodic"/>
+<event kind="sample" tstamp="117.009904628" id="117" label="periodic"/>
+<event kind="sample" tstamp="118.006903977" id="118" label="periodic"/>
+<event kind="sample" tstamp="119.008902551" id="119" label="periodic"/>
+<event kind="sample" tstamp="120.001894839" id="120" label="periodic"/>
+<event kind="sample" tstamp="121.004890617" id="121" label="periodic"/>
+<event kind="sample" tstamp="122.007886917" id="122" label="periodic"/>
+<event kind="sample" tstamp="123.001884807" id="123" label="periodic"/>
+<event kind="sample" tstamp="124.003879769" id="124" label="periodic"/>
+<event kind="sample" tstamp="125.009876450" id="125" label="periodic"/>
+<event kind="sample" tstamp="126.003872404" id="126" label="periodic"/>
+<event kind="sample" tstamp="127.005869349" id="127" label="periodic"/>
+<event kind="sample" tstamp="128.009865027" id="128" label="periodic"/>
+<event kind="sample" tstamp="129.002860832" id="129" label="periodic"/>
+<event kind="sample" tstamp="130.008859527" id="130" label="periodic"/>
+<event kind="sample" tstamp="131.001854817" id="131" label="periodic"/>
+<event kind="sample" tstamp="132.004852639" id="132" label="periodic"/>
+<event kind="sample" tstamp="133.000847481" id="133" label="periodic"/>
+<event kind="sample" tstamp="134.003845834" id="134" label="periodic"/>
+<event kind="sample" tstamp="135.006842175" id="135" label="periodic"/>
+<event kind="sample" tstamp="136.000840220" id="136" label="periodic"/>
+<event kind="sample" tstamp="137.002837444" id="137" label="periodic"/>
+<event kind="sample" tstamp="138.006831532" id="138" label="periodic"/>
+<event kind="sample" tstamp="139.009826140" id="139" label="periodic"/>
+<event kind="sample" tstamp="140.006823747" id="140" label="periodic"/>
+<event kind="sample" tstamp="141.002821549" id="141" label="periodic"/>
+<event kind="sample" tstamp="142.005816601" id="142" label="periodic"/>
+<event kind="sample" tstamp="143.008812211" id="143" label="periodic"/>
+<event kind="sample" tstamp="144.002809670" id="144" label="periodic"/>
+<event kind="sample" tstamp="145.004805750" id="145" label="periodic"/>
+<event kind="sample" tstamp="146.008803111" id="146" label="periodic"/>
+<event kind="sample" tstamp="147.001798719" id="147" label="periodic"/>
+<event kind="sample" tstamp="148.008795936" id="148" label="periodic"/>
+<event kind="sample" tstamp="149.000791236" id="149" label="periodic"/>
+<event kind="sample" tstamp="150.004788614" id="150" label="periodic"/>
+<event kind="sample" tstamp="151.007785799" id="151" label="periodic"/>
+<event kind="sample" tstamp="152.001780386" id="152" label="periodic"/>
+<event kind="sample" tstamp="153.007776901" id="153" label="periodic"/>
+<event kind="sample" tstamp="154.000774067" id="154" label="periodic"/>
+<event kind="sample" tstamp="155.003771284" id="155" label="periodic"/>
+<event kind="sample" tstamp="156.000766665" id="156" label="periodic"/>
+<event kind="sample" tstamp="157.002766552" id="157" label="periodic"/>
+<event kind="sample" tstamp="158.006762270" id="158" label="periodic"/>
+<event kind="sample" tstamp="159.009756536" id="159" label="periodic"/>
+<event kind="sample" tstamp="160.003754330" id="160" label="periodic"/>
+<event kind="sample" tstamp="161.005748665" id="161" label="periodic"/>
+<event kind="sample" tstamp="162.008746829" id="162" label="periodic"/>
+<event kind="sample" tstamp="163.002742929" id="163" label="periodic"/>
+<event kind="sample" tstamp="164.008738484" id="164" label="periodic"/>
+<event kind="sample" tstamp="165.005735181" id="165" label="periodic"/>
+<event kind="sample" tstamp="166.007741878" id="166" label="periodic"/>
+<event kind="sample" tstamp="167.000727171" id="167" label="periodic"/>
+<event kind="sample" tstamp="168.003723628" id="168" label="periodic"/>
+<event kind="sample" tstamp="169.006722689" id="169" label="periodic"/>
+<event kind="sample" tstamp="170.000716606" id="170" label="periodic"/>
+<event kind="sample" tstamp="171.006714908" id="171" label="periodic"/>
+<event kind="sample" tstamp="172.009709903" id="172" label="periodic"/>
+<event kind="sample" tstamp="173.002706947" id="173" label="periodic"/>
+<event kind="sample" tstamp="174.004705136" id="174" label="periodic"/>
+<event kind="sample" tstamp="175.008701375" id="175" label="periodic"/>
+<event kind="sample" tstamp="176.001696148" id="176" label="periodic"/>
+<event kind="sample" tstamp="177.008693163" id="177" label="periodic"/>
+<event kind="sample" tstamp="178.000689250" id="178" label="periodic"/>
+<event kind="sample" tstamp="179.007686625" id="179" label="periodic"/>
+<event kind="sample" tstamp="180.000683722" id="180" label="periodic"/>
+<event kind="sample" tstamp="181.003680278" id="181" label="periodic"/>
+<event kind="sample" tstamp="182.006677034" id="182" label="periodic"/>
+<event kind="sample" tstamp="183.000672161" id="183" label="periodic"/>
+<event kind="sample" tstamp="184.002668975" id="184" label="periodic"/>
+<event kind="sample" tstamp="185.006664908" id="185" label="periodic"/>
+<event kind="sample" tstamp="186.009661709" id="186" label="periodic"/>
+<event kind="sample" tstamp="187.006657910" id="187" label="periodic"/>
+<event kind="sample" tstamp="188.002659740" id="188" label="periodic"/>
+<event kind="sample" tstamp="189.004649543" id="189" label="periodic"/>
+<event kind="sample" tstamp="190.008649764" id="190" label="periodic"/>
+<event kind="sample" tstamp="191.001644159" id="191" label="periodic"/>
+<event kind="sample" tstamp="192.004639253" id="192" label="periodic"/>
+<event kind="sample" tstamp="193.007635572" id="193" label="periodic"/>
+<event kind="sample" tstamp="194.001632793" id="194" label="periodic"/>
+<event kind="sample" tstamp="195.007629677" id="195" label="periodic"/>
+<event kind="sample" tstamp="196.009625541" id="196" label="periodic"/>
+<event kind="sample" tstamp="197.003624547" id="197" label="periodic"/>
+<event kind="sample" tstamp="198.005618671" id="198" label="periodic"/>
+<event kind="sample" tstamp="199.009615364" id="199" label="periodic"/>
+<event kind="sample" tstamp="200.005611051" id="200" label="periodic"/>
+<event kind="sample" tstamp="201.007611294" id="201" label="periodic"/>
+<event kind="sample" tstamp="202.004604136" id="202" label="periodic"/>
+<event kind="sample" tstamp="203.007601784" id="203" label="periodic"/>
+<event kind="sample" tstamp="204.000597075" id="204" label="periodic"/>
+<event kind="sample" tstamp="205.003594984" id="205" label="periodic"/>
+<event kind="sample" tstamp="206.006591021" id="206" label="periodic"/>
+<event kind="sample" tstamp="207.000589826" id="207" label="periodic"/>
+<event kind="sample" tstamp="208.002584004" id="208" label="periodic"/>
+<event kind="sample" tstamp="209.006581018" id="209" label="periodic"/>
+<event kind="sample" tstamp="210.002576611" id="210" label="periodic"/>
+<event kind="sample" tstamp="211.005572519" id="211" label="periodic"/>
+<event kind="sample" tstamp="212.001571301" id="212" label="periodic"/>
+<event kind="sample" tstamp="213.003566078" id="213" label="periodic"/>
+<event kind="sample" tstamp="214.007561957" id="214" label="periodic"/>
+<event kind="sample" tstamp="215.001561184" id="215" label="periodic"/>
+<event kind="sample" tstamp="216.003556613" id="216" label="periodic"/>
+<event kind="sample" tstamp="217.006554594" id="217" label="periodic"/>
+<event kind="sample" tstamp="218.003547834" id="218" label="periodic"/>
+<event kind="sample" tstamp="219.005544694" id="219" label="periodic"/>
+<event kind="sample" tstamp="220.009541530" id="220" label="periodic"/>
+<event kind="sample" tstamp="221.003537651" id="221" label="periodic"/>
+<event kind="sample" tstamp="222.005535199" id="222" label="periodic"/>
+<event kind="sample" tstamp="223.009529984" id="223" label="periodic"/>
+<event kind="sample" tstamp="224.005525811" id="224" label="periodic"/>
+<event kind="sample" tstamp="225.007524153" id="225" label="periodic"/>
+<event kind="sample" tstamp="226.004523203" id="226" label="periodic"/>
+<event kind="sample" tstamp="227.006517947" id="227" label="periodic"/>
+<event kind="sample" tstamp="228.009512506" id="228" label="periodic"/>
+<event kind="sample" tstamp="229.003508723" id="229" label="periodic"/>
+<event kind="sample" tstamp="230.005506228" id="230" label="periodic"/>
+<event kind="sample" tstamp="231.009501694" id="231" label="periodic"/>
+<event kind="sample" tstamp="232.003498817" id="232" label="periodic"/>
+<event kind="sample" tstamp="233.009494186" id="233" label="periodic"/>
+<event kind="sample" tstamp="234.002490718" id="234" label="periodic"/>
+<event kind="sample" tstamp="235.008486926" id="235" label="periodic"/>
+<event kind="sample" tstamp="236.002483784" id="236" label="periodic"/>
+<event kind="sample" tstamp="237.004480214" id="237" label="periodic"/>
+<event kind="sample" tstamp="238.007481046" id="238" label="periodic"/>
+<event kind="sample" tstamp="239.001473658" id="239" label="periodic"/>
+<event kind="sample" tstamp="240.004470709" id="240" label="periodic"/>
+<event kind="sample" tstamp="241.000466355" id="241" label="periodic"/>
+<event kind="sample" tstamp="242.002464373" id="242" label="periodic"/>
+<event kind="sample" tstamp="243.006460118" id="243" label="periodic"/>
+<event kind="sample" tstamp="244.000457497" id="244" label="periodic"/>
+<event kind="sample" tstamp="245.002451917" id="245" label="periodic"/>
+<event kind="sample" tstamp="246.006449374" id="246" label="periodic"/>
+<event kind="sample" tstamp="247.002445440" id="247" label="periodic"/>
+<event kind="sample" tstamp="248.004442195" id="248" label="periodic"/>
+<event kind="sample" tstamp="249.001440153" id="249" label="periodic"/>
+<event kind="sample" tstamp="250.003433795" id="250" label="periodic"/>
+<event kind="sample" tstamp="251.007431249" id="251" label="periodic"/>
+<event kind="sample" tstamp="252.000428019" id="252" label="periodic"/>
+<event kind="sample" tstamp="253.003423859" id="253" label="periodic"/>
+<event kind="sample" tstamp="254.006421472" id="254" label="periodic"/>
+<event kind="sample" tstamp="255.000417049" id="255" label="periodic"/>
+<event kind="sample" tstamp="256.002413059" id="256" label="periodic"/>
+<event kind="sample" tstamp="257.008410945" id="257" label="periodic"/>
+<event kind="sample" tstamp="258.002407649" id="258" label="periodic"/>
+<event kind="sample" tstamp="259.008402197" id="259" label="periodic"/>
+<event kind="sample" tstamp="260.000400312" id="260" label="periodic"/>
+<event kind="sample" tstamp="261.004396032" id="261" label="periodic"/>
+<event kind="sample" tstamp="262.008394753" id="262" label="periodic"/>
+<event kind="sample" tstamp="263.001393495" id="263" label="periodic"/>
+<event kind="sample" tstamp="264.008387581" id="264" label="periodic"/>
+<event kind="sample" tstamp="265.000386492" id="265" label="periodic"/>
+<event kind="sample" tstamp="266.004380373" id="266" label="periodic"/>
+<event kind="sample" tstamp="267.007374374" id="267" label="periodic"/>
+<event kind="sample" tstamp="268.001371678" id="268" label="periodic"/>
+<event kind="sample" tstamp="269.003368414" id="269" label="periodic"/>
+<event kind="sample" tstamp="270.007363547" id="270" label="periodic"/>
+<event kind="sample" tstamp="271.003360073" id="271" label="periodic"/>
+<event kind="sample" tstamp="272.009358626" id="272" label="periodic"/>
+<event kind="sample" tstamp="273.002353169" id="273" label="periodic"/>
+<event kind="sample" tstamp="274.005349248" id="274" label="periodic"/>
+<event kind="sample" tstamp="275.009345816" id="275" label="periodic"/>
+<event kind="sample" tstamp="276.002343435" id="276" label="periodic"/>
+<event kind="sample" tstamp="277.005340166" id="277" label="periodic"/>
+<event kind="sample" tstamp="278.009336057" id="278" label="periodic"/>
+<event kind="sample" tstamp="279.002334375" id="279" label="periodic"/>
+<event kind="sample" tstamp="280.009331290" id="280" label="periodic"/>
+<event kind="sample" tstamp="281.001325734" id="281" label="periodic"/>
+<event kind="sample" tstamp="282.008321777" id="282" label="periodic"/>
+<event kind="sample" tstamp="283.001317862" id="283" label="periodic"/>
+<event kind="sample" tstamp="284.005314667" id="284" label="periodic"/>
+<event kind="sample" tstamp="285.008310448" id="285" label="periodic"/>
+<event kind="sample" tstamp="286.002306732" id="286" label="periodic"/>
+<event kind="sample" tstamp="287.005302878" id="287" label="periodic"/>
+<event kind="sample" tstamp="288.002316717" id="288" label="periodic"/>
+<event kind="sample" tstamp="289.004296943" id="289" label="periodic"/>
+<event kind="sample" tstamp="290.007293866" id="290" label="periodic"/>
+<event kind="sample" tstamp="291.001292196" id="291" label="periodic"/>
+<event kind="sample" tstamp="292.003285817" id="292" label="periodic"/>
+<event kind="sample" tstamp="293.007283830" id="293" label="periodic"/>
+<event kind="sample" tstamp="294.004279614" id="294" label="periodic"/>
+<event kind="sample" tstamp="295.001275696" id="295" label="periodic"/>
+<event kind="sample" tstamp="296.003272226" id="296" label="periodic"/>
+<event kind="sample" tstamp="297.007272238" id="297" label="periodic"/>
+<event kind="sample" tstamp="298.001264749" id="298" label="periodic"/>
+<event kind="sample" tstamp="299.003261320" id="299" label="periodic"/>
+<event kind="sample" tstamp="300.006258269" id="300" label="periodic"/>
+<event kind="sample" tstamp="301.000254269" id="301" label="periodic"/>
+<event kind="sample" tstamp="302.002252010" id="302" label="periodic"/>
+<event kind="sample" tstamp="303.008248782" id="303" label="periodic"/>
+<event kind="sample" tstamp="304.002243487" id="304" label="periodic"/>
+<event kind="sample" tstamp="305.004240890" id="305" label="periodic"/>
+<event kind="sample" tstamp="306.001236588" id="306" label="periodic"/>
+<event kind="sample" tstamp="307.003233044" id="307" label="periodic"/>
+<event kind="sample" tstamp="308.007230251" id="308" label="periodic"/>
+<event kind="sample" tstamp="309.000227659" id="309" label="periodic"/>
+<event kind="sample" tstamp="310.003222460" id="310" label="periodic"/>
+<event kind="sample" tstamp="311.009220326" id="311" label="periodic"/>
+<event kind="sample" tstamp="312.003215989" id="312" label="periodic"/>
+<event kind="sample" tstamp="313.005212217" id="313" label="periodic"/>
+<event kind="sample" tstamp="314.009208689" id="314" label="periodic"/>
+<event kind="sample" tstamp="315.003210768" id="315" label="periodic"/>
+<event kind="sample" tstamp="316.005201518" id="316" label="periodic"/>
+<event kind="sample" tstamp="317.008197818" id="317" label="periodic"/>
+<event kind="sample" tstamp="318.008197524" id="318" label="periodic"/>
+<event kind="sample" tstamp="319.001191252" id="319" label="periodic"/>
+<event kind="sample" tstamp="320.003187406" id="320" label="periodic"/>
+<event kind="sample" tstamp="321.007184011" id="321" label="periodic"/>
+<event kind="sample" tstamp="322.001181210" id="322" label="periodic"/>
+<event kind="sample" tstamp="323.003177127" id="323" label="periodic"/>
+<event kind="sample" tstamp="324.006172553" id="324" label="periodic"/>
+<event kind="sample" tstamp="325.000170638" id="325" label="periodic"/>
+<event kind="sample" tstamp="326.006167289" id="326" label="periodic"/>
+<event kind="sample" tstamp="327.009163285" id="327" label="periodic"/>
+<event kind="sample" tstamp="328.002160375" id="328" label="periodic"/>
+<event kind="sample" tstamp="329.009159511" id="329" label="periodic"/>
+<event kind="sample" tstamp="330.001152366" id="330" label="periodic"/>
+<event kind="sample" tstamp="331.004149421" id="331" label="periodic"/>
+<event kind="sample" tstamp="332.008144693" id="332" label="periodic"/>
+<event kind="sample" tstamp="333.004143862" id="333" label="periodic"/>
+<event kind="sample" tstamp="334.006139599" id="334" label="periodic"/>
+<event kind="sample" tstamp="335.000134238" id="335" label="periodic"/>
+<event kind="sample" tstamp="336.002129743" id="336" label="periodic"/>
+<event kind="sample" tstamp="337.006127520" id="337" label="periodic"/>
+<event kind="sample" tstamp="338.009128424" id="338" label="periodic"/>
+<event kind="sample" tstamp="339.003120078" id="339" label="periodic"/>
+<event kind="sample" tstamp="340.005115913" id="340" label="periodic"/>
+<event kind="sample" tstamp="341.006114509" id="341" label="periodic"/>
+<event kind="sample" tstamp="342.009109320" id="342" label="periodic"/>
+<event kind="sample" tstamp="343.003106388" id="343" label="periodic"/>
+<event kind="sample" tstamp="344.005101349" id="344" label="periodic"/>
+<event kind="sample" tstamp="345.009098582" id="345" label="periodic"/>
+<event kind="sample" tstamp="346.002095993" id="346" label="periodic"/>
+<event kind="sample" tstamp="347.005093312" id="347" label="periodic"/>
+<event kind="sample" tstamp="348.008089898" id="348" label="periodic"/>
+<event kind="sample" tstamp="349.005086417" id="349" label="periodic"/>
+<event kind="sample" tstamp="350.008082682" id="350" label="periodic"/>
+<event kind="sample" tstamp="351.001077207" id="351" label="periodic"/>
+<event kind="sample" tstamp="352.003076111" id="352" label="periodic"/>
+<event kind="sample" tstamp="353.000070254" id="353" label="periodic"/>
+<event kind="sample" tstamp="354.002067763" id="354" label="periodic"/>
+<event kind="sample" tstamp="355.006062480" id="355" label="periodic"/>
+<event kind="sample" tstamp="356.003059454" id="356" label="periodic"/>
+<event kind="sample" tstamp="357.005055855" id="357" label="periodic"/>
+<event kind="sample" tstamp="358.009052429" id="358" label="periodic"/>
+<event kind="sample" tstamp="359.002049194" id="359" label="periodic"/>
+<event kind="sample" tstamp="360.005047964" id="360" label="periodic"/>
+<event kind="sample" tstamp="361.008043391" id="361" label="periodic"/>
+<event kind="sample" tstamp="362.002039206" id="362" label="periodic"/>
+<event kind="sample" tstamp="363.004035593" id="363" label="periodic"/>
+<event kind="sample" tstamp="364.001037150" id="364" label="periodic"/>
+<event kind="sample" tstamp="365.007030656" id="365" label="periodic"/>
+<event kind="sample" tstamp="366.010028867" id="366" label="periodic"/>
+<event kind="sample" tstamp="367.003025393" id="367" label="periodic"/>
+<event kind="sample" tstamp="368.005021599" id="368" label="periodic"/>
+<event kind="sample" tstamp="369.009041074" id="369" label="periodic"/>
+<event kind="sample" tstamp="370.002010078" id="370" label="periodic"/>
+<event kind="sample" tstamp="371.005007467" id="371" label="periodic"/>
+<event kind="sample" tstamp="372.001004035" id="372" label="periodic"/>
+<event kind="sample" tstamp="373.003000219" id="373" label="periodic"/>
+<event kind="sample" tstamp="374.006996752" id="374" label="periodic"/>
+<event kind="sample" tstamp="375.009994806" id="375" label="periodic"/>
+<event kind="sample" tstamp="376.005988966" id="376" label="periodic"/>
+<event kind="sample" tstamp="377.008985180" id="377" label="periodic"/>
+<event kind="sample" tstamp="378.001984736" id="378" label="periodic"/>
+<event kind="sample" tstamp="379.007979549" id="379" label="periodic"/>
+<event kind="sample" tstamp="380.009975479" id="380" label="periodic"/>
+<event kind="sample" tstamp="381.003972692" id="381" label="periodic"/>
+<event kind="sample" tstamp="382.005969505" id="382" label="periodic"/>
+<event kind="sample" tstamp="383.009965575" id="383" label="periodic"/>
+<event kind="sample" tstamp="384.003963316" id="384" label="periodic"/>
+<event kind="sample" tstamp="385.005958185" id="385" label="periodic"/>
+<event kind="sample" tstamp="386.008956562" id="386" label="periodic"/>
+<event kind="sample" tstamp="387.005951872" id="387" label="periodic"/>
+<event kind="sample" tstamp="388.001947425" id="388" label="periodic"/>
+<event kind="sample" tstamp="389.003943835" id="389" label="periodic"/>
+<event kind="sample" tstamp="390.007941327" id="390" label="periodic"/>
+<event kind="sample" tstamp="391.000937041" id="391" label="periodic"/>
+<event kind="sample" tstamp="392.003932096" id="392" label="periodic"/>
+<event kind="sample" tstamp="393.006931480" id="393" label="periodic"/>
+<event kind="sample" tstamp="394.003926745" id="394" label="periodic"/>
+<event kind="sample" tstamp="395.005921590" id="395" label="periodic"/>
+<event kind="sample" tstamp="396.009918277" id="396" label="periodic"/>
+<event kind="sample" tstamp="397.002915654" id="397" label="periodic"/>
+<event kind="sample" tstamp="398.005913355" id="398" label="periodic"/>
+<event kind="sample" tstamp="399.008908363" id="399" label="periodic"/>
+<event kind="sample" tstamp="400.005905398" id="400" label="periodic"/>
+<event kind="sample" tstamp="401.007901710" id="401" label="periodic"/>
+<event kind="sample" tstamp="402.003898010" id="402" label="periodic"/>
+<event kind="sample" tstamp="403.006898186" id="403" label="periodic"/>
+<event kind="sample" tstamp="404.009890589" id="404" label="periodic"/>
+<event kind="sample" tstamp="405.003887676" id="405" label="periodic"/>
+<event kind="sample" tstamp="406.005883857" id="406" label="periodic"/>
+<event kind="sample" tstamp="407.009883120" id="407" label="periodic"/>
+<event kind="sample" tstamp="408.002877886" id="408" label="periodic"/>
+<event kind="sample" tstamp="409.005874360" id="409" label="periodic"/>
+<event kind="sample" tstamp="410.001868926" id="410" label="periodic"/>
+<event kind="sample" tstamp="411.003865603" id="411" label="periodic"/>
+<event kind="sample" tstamp="412.000863296" id="412" label="periodic"/>
+<event kind="sample" tstamp="413.002859292" id="413" label="periodic"/>
+<event kind="sample" tstamp="414.005854282" id="414" label="periodic"/>
+<event kind="sample" tstamp="415.009851966" id="415" label="periodic"/>
+<event kind="sample" tstamp="416.002849092" id="416" label="periodic"/>
+<event kind="sample" tstamp="417.008844259" id="417" label="periodic"/>
+<event kind="sample" tstamp="418.001844105" id="418" label="periodic"/>
+<event kind="sample" tstamp="419.004841255" id="419" label="periodic"/>
+<event kind="sample" tstamp="420.008834217" id="420" label="periodic"/>
+<event kind="sample" tstamp="421.001831700" id="421" label="periodic"/>
+<event kind="sample" tstamp="422.003933664" id="422" label="periodic"/>
+<event kind="sample" tstamp="423.000824579" id="423" label="periodic"/>
+<event kind="sample" tstamp="424.002820213" id="424" label="periodic"/>
+<event kind="sample" tstamp="425.009821423" id="425" label="periodic"/>
+<event kind="sample" tstamp="426.002813012" id="426" label="periodic"/>
+<event kind="sample" tstamp="427.005808876" id="427" label="periodic"/>
+<event kind="sample" tstamp="428.008807709" id="428" label="periodic"/>
+<event kind="sample" tstamp="429.002801477" id="429" label="periodic"/>
+<event kind="sample" tstamp="430.004798003" id="430" label="periodic"/>
+<event kind="sample" tstamp="431.008797054" id="431" label="periodic"/>
+<event kind="sample" tstamp="432.004792739" id="432" label="periodic"/>
+<event kind="sample" tstamp="433.006788443" id="433" label="periodic"/>
+<event kind="sample" tstamp="434.000788175" id="434" label="periodic"/>
+<event kind="sample" tstamp="435.006780284" id="435" label="periodic"/>
+<event kind="sample" tstamp="436.008777728" id="436" label="periodic"/>
+<event kind="sample" tstamp="437.002774789" id="437" label="periodic"/>
+<event kind="sample" tstamp="438.004771799" id="438" label="periodic"/>
+<event kind="sample" tstamp="439.008766657" id="439" label="periodic"/>
+<event kind="sample" tstamp="440.004764030" id="440" label="periodic"/>
+<event kind="sample" tstamp="441.006761465" id="441" label="periodic"/>
+<event kind="sample" tstamp="442.000759584" id="442" label="periodic"/>
+<event kind="sample" tstamp="443.002753694" id="443" label="periodic"/>
+<event kind="sample" tstamp="444.006751073" id="444" label="periodic"/>
+<event kind="sample" tstamp="445.009746083" id="445" label="periodic"/>
+<event kind="sample" tstamp="446.003744526" id="446" label="periodic"/>
+<event kind="sample" tstamp="447.009739428" id="447" label="periodic"/>
+<event kind="sample" tstamp="448.005734848" id="448" label="periodic"/>
+<event kind="sample" tstamp="449.008732797" id="449" label="periodic"/>
+<event kind="sample" tstamp="450.001727799" id="450" label="periodic"/>
+<event kind="sample" tstamp="451.003723843" id="451" label="periodic"/>
+<event kind="sample" tstamp="452.007722435" id="452" label="periodic"/>
+<event kind="sample" tstamp="453.001718627" id="453" label="periodic"/>
+<event kind="sample" tstamp="454.003714083" id="454" label="periodic"/>
+<event kind="sample" tstamp="455.009712019" id="455" label="periodic"/>
+<event kind="sample" tstamp="456.003707582" id="456" label="periodic"/>
+<event kind="sample" tstamp="457.005702490" id="457" label="periodic"/>
+<event kind="sample" tstamp="458.008699126" id="458" label="periodic"/>
+<event kind="sample" tstamp="459.005696996" id="459" label="periodic"/>
+<event kind="sample" tstamp="460.007692447" id="460" label="periodic"/>
+<event kind="sample" tstamp="461.001688514" id="461" label="periodic"/>
+<event kind="sample" tstamp="462.003686859" id="462" label="periodic"/>
+<event kind="sample" tstamp="463.009684860" id="463" label="periodic"/>
+<event kind="sample" tstamp="464.002677834" id="464" label="periodic"/>
+<event kind="sample" tstamp="465.005674676" id="465" label="periodic"/>
+<event kind="sample" tstamp="466.008671574" id="466" label="periodic"/>
+<event kind="sample" tstamp="467.002671951" id="467" label="periodic"/>
+<event kind="sample" tstamp="468.004664185" id="468" label="periodic"/>
+<event kind="sample" tstamp="469.007662145" id="469" label="periodic"/>
+<event kind="sample" tstamp="470.007659152" id="470" label="periodic"/>
+<event kind="sample" tstamp="471.000654378" id="471" label="periodic"/>
+<event kind="sample" tstamp="472.002649937" id="472" label="periodic"/>
+<event kind="sample" tstamp="473.006646704" id="473" label="periodic"/>
+<event kind="sample" tstamp="474.009642915" id="474" label="periodic"/>
+<event kind="sample" tstamp="475.002645651" id="475" label="periodic"/>
+<event kind="sample" tstamp="476.005638632" id="476" label="periodic"/>
+<event kind="sample" tstamp="477.008632767" id="477" label="periodic"/>
+<event kind="sample" tstamp="478.004631061" id="478" label="periodic"/>
+<event kind="sample" tstamp="479.007625506" id="479" label="periodic"/>
+<event kind="sample" tstamp="480.000627957" id="480" label="periodic"/>
+<event kind="sample" tstamp="481.002619309" id="481" label="periodic"/>
+<event kind="sample" tstamp="482.008614845" id="482" label="periodic"/>
+<event kind="sample" tstamp="483.002611766" id="483" label="periodic"/>
+<event kind="sample" tstamp="484.004607201" id="484" label="periodic"/>
+<event kind="sample" tstamp="485.008607279" id="485" label="periodic"/>
+<event kind="sample" tstamp="486.004605649" id="486" label="periodic"/>
+<event kind="sample" tstamp="487.006597261" id="487" label="periodic"/>
+<event kind="sample" tstamp="488.009595027" id="488" label="periodic"/>
+<event kind="sample" tstamp="489.003592037" id="489" label="periodic"/>
+<event kind="sample" tstamp="490.005587449" id="490" label="periodic"/>
+<event kind="sample" tstamp="491.009583994" id="491" label="periodic"/>
+<event kind="sample" tstamp="492.002582101" id="492" label="periodic"/>
+<event kind="sample" tstamp="493.008578045" id="493" label="periodic"/>
+<event kind="sample" tstamp="494.003572814" id="494" label="periodic"/>
+<event kind="sample" tstamp="495.007568904" id="495" label="periodic"/>
+<event kind="sample" tstamp="496.000565178" id="496" label="periodic"/>
+<event kind="sample" tstamp="497.002561691" id="497" label="periodic"/>
+<event kind="sample" tstamp="498.006557292" id="498" label="periodic"/>
+<event kind="sample" tstamp="499.009553866" id="499" label="periodic"/>
+<event kind="sample" tstamp="500.003550455" id="500" label="periodic"/>
+<event kind="sample" tstamp="501.009548119" id="501" label="periodic"/>
+<event kind="sample" tstamp="502.002544634" id="502" label="periodic"/>
+<event kind="sample" tstamp="503.005540678" id="503" label="periodic"/>
+<event kind="sample" tstamp="504.009538390" id="504" label="periodic"/>
+<event kind="sample" tstamp="505.002536487" id="505" label="periodic"/>
+<event kind="sample" tstamp="506.008529847" id="506" label="periodic"/>
+<event kind="sample" tstamp="507.001527520" id="507" label="periodic"/>
+<event kind="sample" tstamp="508.004523537" id="508" label="periodic"/>
+<event kind="sample" tstamp="509.000518697" id="509" label="periodic"/>
+<event kind="sample" tstamp="510.002515593" id="510" label="periodic"/>
+<event kind="sample" tstamp="511.006512148" id="511" label="periodic"/>
+<event kind="sample" tstamp="512.009511677" id="512" label="periodic"/>
+<event kind="sample" tstamp="513.003505025" id="513" label="periodic"/>
+<event kind="sample" tstamp="514.005501785" id="514" label="periodic"/>
+<event kind="sample" tstamp="515.008526402" id="515" label="periodic"/>
+<event kind="sample" tstamp="516.005496020" id="516" label="periodic"/>
+<event kind="sample" tstamp="517.001491339" id="517" label="periodic"/>
+<event kind="sample" tstamp="518.003490948" id="518" label="periodic"/>
+<event kind="sample" tstamp="519.007485770" id="519" label="periodic"/>
+<event kind="sample" tstamp="520.001480186" id="520" label="periodic"/>
+<event kind="sample" tstamp="521.003478350" id="521" label="periodic"/>
+<event kind="sample" tstamp="522.007474329" id="522" label="periodic"/>
+<event kind="sample" tstamp="523.000470319" id="523" label="periodic"/>
+<event kind="sample" tstamp="524.006467378" id="524" label="periodic"/>
+<event kind="sample" tstamp="525.009465650" id="525" label="periodic"/>
+<event kind="sample" tstamp="526.002458759" id="526" label="periodic"/>
+<event kind="sample" tstamp="527.005459253" id="527" label="periodic"/>
+<event kind="sample" tstamp="528.008455376" id="528" label="periodic"/>
+<event kind="sample" tstamp="529.004448862" id="529" label="periodic"/>
+<event kind="sample" tstamp="530.007444480" id="530" label="periodic"/>
+<event kind="sample" tstamp="531.003442721" id="531" label="periodic"/>
+<event kind="sample" tstamp="532.005439115" id="532" label="periodic"/>
+<event kind="sample" tstamp="533.008434928" id="533" label="periodic"/>
+<event kind="sample" tstamp="534.002431223" id="534" label="periodic"/>
+<event kind="sample" tstamp="535.004428096" id="535" label="periodic"/>
+<event kind="sample" tstamp="536.007424127" id="536" label="periodic"/>
+<event kind="sample" tstamp="537.001421709" id="537" label="periodic"/>
+<event kind="sample" tstamp="538.003418159" id="538" label="periodic"/>
+<event kind="sample" tstamp="539.000414396" id="539" label="periodic"/>
+<event kind="sample" tstamp="540.002409999" id="540" label="periodic"/>
+<event kind="sample" tstamp="541.008406610" id="541" label="periodic"/>
+<event kind="sample" tstamp="542.002402660" id="542" label="periodic"/>
+<event kind="sample" tstamp="543.004398661" id="543" label="periodic"/>
+<event kind="sample" tstamp="544.008397103" id="544" label="periodic"/>
+<event kind="sample" tstamp="545.001393733" id="545" label="periodic"/>
+<event kind="sample" tstamp="546.004389843" id="546" label="periodic"/>
+<event kind="sample" tstamp="547.000384575" id="547" label="periodic"/>
+<event kind="sample" tstamp="548.002381701" id="548" label="periodic"/>
+<event kind="sample" tstamp="549.006377905" id="549" label="periodic"/>
+<event kind="sample" tstamp="550.009374438" id="550" label="periodic"/>
+<event kind="sample" tstamp="551.003370400" id="551" label="periodic"/>
+<event kind="sample" tstamp="552.005367111" id="552" label="periodic"/>
+<event kind="sample" tstamp="553.001363959" id="553" label="periodic"/>
+<event kind="sample" tstamp="554.007362932" id="554" label="periodic"/>
+<event kind="sample" tstamp="555.009356051" id="555" label="periodic"/>
+<event kind="sample" tstamp="556.003356525" id="556" label="periodic"/>
+<event kind="sample" tstamp="557.005351387" id="557" label="periodic"/>
+<event kind="sample" tstamp="558.009347073" id="558" label="periodic"/>
+<event kind="sample" tstamp="559.002342813" id="559" label="periodic"/>
+<event kind="sample" tstamp="560.004341416" id="560" label="periodic"/>
+<event kind="sample" tstamp="561.008337472" id="561" label="periodic"/>
+<event kind="sample" tstamp="562.004333030" id="562" label="periodic"/>
+<event kind="sample" tstamp="563.006329942" id="563" label="periodic"/>
+<event kind="sample" tstamp="564.002325874" id="564" label="periodic"/>
+<event kind="sample" tstamp="565.005321393" id="565" label="periodic"/>
+<event kind="sample" tstamp="566.008318817" id="566" label="periodic"/>
+<event kind="sample" tstamp="567.002315546" id="567" label="periodic"/>
+<event kind="sample" tstamp="568.004310591" id="568" label="periodic"/>
+<event kind="sample" tstamp="569.000306315" id="569" label="periodic"/>
+<event kind="sample" tstamp="570.002302832" id="570" label="periodic"/>
+<event kind="sample" tstamp="571.006298906" id="571" label="periodic"/>
+<event kind="sample" tstamp="572.009295413" id="572" label="periodic"/>
+<event kind="sample" tstamp="573.003292458" id="573" label="periodic"/>
+<event kind="sample" tstamp="574.005289210" id="574" label="periodic"/>
+<event kind="sample" tstamp="575.001285590" id="575" label="periodic"/>
+<event kind="sample" tstamp="576.007281779" id="576" label="periodic"/>
+<event kind="sample" tstamp="577.009277891" id="577" label="periodic"/>
+<event kind="sample" tstamp="578.003274354" id="578" label="periodic"/>
+<event kind="sample" tstamp="579.005271049" id="579" label="periodic"/>
+<event kind="sample" tstamp="580.001267584" id="580" label="periodic"/>
+<event kind="sample" tstamp="581.003264858" id="581" label="periodic"/>
+<event kind="sample" tstamp="582.007260223" id="582" label="periodic"/>
+<event kind="sample" tstamp="583.000257132" id="583" label="periodic"/>
+<event kind="sample" tstamp="584.002253124" id="584" label="periodic"/>
+<event kind="sample" tstamp="585.006252594" id="585" label="periodic"/>
+<event kind="sample" tstamp="586.002246380" id="586" label="periodic"/>
+<event kind="sample" tstamp="587.004242719" id="587" label="periodic"/>
+<event kind="sample" tstamp="588.000239453" id="588" label="periodic"/>
+<event kind="sample" tstamp="589.003235664" id="589" label="periodic"/>
+<event kind="sample" tstamp="590.006232147" id="590" label="periodic"/>
+<event kind="sample" tstamp="591.003228659" id="591" label="periodic"/>
+<event kind="sample" tstamp="592.005225440" id="592" label="periodic"/>
+<event kind="sample" tstamp="593.008222594" id="593" label="periodic"/>
+<event kind="sample" tstamp="594.002218735" id="594" label="periodic"/>
+<event kind="sample" tstamp="595.004214634" id="595" label="periodic"/>
+<event kind="sample" tstamp="596.008211299" id="596" label="periodic"/>
+<event kind="sample" tstamp="597.004207340" id="597" label="periodic"/>
+<event kind="sample" tstamp="598.006203776" id="598" label="periodic"/>
+<event kind="sample" tstamp="599.012201031" id="599" label="periodic"/>
+<event kind="sample" tstamp="600.006197489" id="600" label="periodic"/>
+<event kind="sample" tstamp="601.008193068" id="601" label="periodic"/>
+<event kind="sample" tstamp="602.001190343" id="602" label="periodic"/>
+<event kind="sample" tstamp="603.007187241" id="603" label="periodic"/>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

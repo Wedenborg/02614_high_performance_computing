@@ -6,12 +6,12 @@
 #
 # Author: Bernd Dammann <bd@cc.dtu.dk>
 #
-#BSUB -J collector
-#BSUB -o collector_%J.out
+#BSUB -J collector_300
+#BSUB -o collector_300_%J.out
 #BSUB -q hpcintro
 #BSUB -n 1
 #BSUB -R "rusage[mem=2048]"
-#BSUB -W 00:10
+#BSUB -W 00:59
 
 module load studio
 
@@ -23,7 +23,7 @@ EXECUTABLE=matmult_c.gcc
 
 # define the mkn values in the MKN variable
 #
-MKN="100 100 100"
+MKN="300 300 300"
 
 # define the permutation type in PERM
 #
@@ -39,7 +39,7 @@ BLKSIZE=1
 # problem size you want to analyze.
 #
 export MFLOPS_MAX_IT=1000
-export MATMULT_COMPARE=0
+export MATMULT_COMPARE=1
 
 # experiment name 
 #
