@@ -10,18 +10,19 @@ Size2 = table2array(T2(:,5));
 speed2  = table2array(T2(:,2));
 
 figure
+yyaxis left 
 semilogx(Size1,speed1,'-o'); 
 xlabel('Size of block');
 ylabel('Performance [Mflop/s]')
-legend('Non Optim');
-set(gca,'FontSize',10)
 
-figure
+
+yyaxis right
 semilogx(Size2, speed2, '-or')
 xlabel('Size of block');
 ylabel('Performance [Mflop/s]')
-legend( 'Optim');
-set(gca,'FontSize',10)
+legend( 'NonOptim','Optim');
+set(gca,'FontSize',15)
+title('Performance for different block sizes')
 
 
 

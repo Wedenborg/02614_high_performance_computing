@@ -1,0 +1,98 @@
+     0.023      2.048 # matmult_mkn
+    58.594   4784.917 # matmult_mkn
+   131.836   4229.610 # matmult_mkn
+   234.375   4650.800 # matmult_mkn
+   527.344   4642.541 # matmult_mkn
+   717.773   4288.044 # matmult_mkn
+   937.500   4478.956 # matmult_mkn
+  2109.375   4710.917 # matmult_mkn
+  5859.375   4722.595 # matmult_mkn
+ 11484.375   4722.051 # matmult_mkn
+ 18984.375   4752.588 # matmult_mkn
+ 23437.500   4763.762 # matmult_mkn
+ 33750.000   4771.364 # matmult_mkn
+ 45937.500   4771.227 # matmult_mkn
+ 52734.375   4765.576 # matmult_mkn
+ 63808.594   4764.182 # matmult_mkn
+ 75937.500   4431.548 # matmult_mkn
+ 93750.000   3724.318 # matmult_mkn
+146484.375   2722.046 # matmult_mkn
+210937.500   2530.542 # matmult_mkn
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-21-41>
+Subject: Job 5045055: <mm_batch> in cluster <dcc> Done
+
+Job <mm_batch> was submitted from host <n-62-30-4> by user <s164548> in cluster <dcc> at Fri Jan 10 09:13:35 2020
+Job was executed on host(s) <n-62-21-41>, in queue <hpcintro>, as user <s164548> in cluster <dcc> at Fri Jan 10 09:13:36 2020
+</zhome/1c/9/118567> was used as the home directory.
+</zhome/1c/9/118567/02614_high_performance_computing-master> was used as the working directory.
+Started at Fri Jan 10 09:13:36 2020
+Terminated at Fri Jan 10 09:15:11 2020
+Results reported at Fri Jan 10 09:15:11 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+# 02614 - High-Performance Computing, January 2018
+# 
+# batch script to run matmult on a decidated server in the hpcintro
+# queue
+#
+# Author: Bernd Dammann <bd@cc.dtu.dk>
+#
+#BSUB -J mm_batch
+#BSUB -o mm_batch_%J.out
+#BSUB -q hpcintro
+#BSUB -n 1
+#BSUB -R "rusage[mem=2048]"
+#BSUB -W 50
+
+# define the driver name to use
+# valid values: matmult_c.studio, matmult_f.studio, matmult_c.gcc or
+# matmult_f.gcc
+#
+EXECUTABLE=matmult_c.gcc
+
+# define the mkn values in the MKN variable
+#
+SIZES="1 50 75 100 150 175 200 300 500 700 900 1000 1200 1400 1500 1650 1800 2000 2500 3000"
+
+# define the permutation type in PERM
+#
+PERM="mkn"
+
+# uncomment and set a reasonable BLKSIZE for the blk version
+#
+#BLKSIZE=1500
+
+# enable(1)/disable(0) result checking
+export MATMULT_COMPARE=0
+
+# start the collect command with the above settings
+for S in $SIZES
+do
+    ./$EXECUTABLE $PERM $S $S $S $BLKSIZE
+done
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   94.53 sec.
+    Max Memory :                                 210 MB
+    Average Memory :                             134.00 MB
+    Total Requested Memory :                     2048.00 MB
+    Delta Memory :                               1838.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   115 sec.
+    Turnaround time :                            96 sec.
+
+The output (if any) is above this job summary.
+
