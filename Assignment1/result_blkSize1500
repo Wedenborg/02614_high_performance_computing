@@ -1,0 +1,14 @@
+     0.023      2.062 # matmult_blk 1500
+    58.594    259.709 # matmult_blk 1500
+   131.836    256.222 # matmult_blk 1500
+   234.375    257.938 # matmult_blk 1500
+   527.344    259.670 # matmult_blk 1500
+   717.773    259.806 # matmult_blk 1500
+   937.500    260.406 # matmult_blk 1500
+  2109.375    261.153 # matmult_blk 1500
+  5859.375    261.615 # matmult_blk 1500
+ 11484.375    262.087 # matmult_blk 1500
+ 18984.375    262.379 # matmult_blk 1500
+ 23437.500    262.289 # matmult_blk 1500
+ 52734.375    262.691 # matmult_blk 1500
+ 93750.000    262.049 # matmult_blk 1500
