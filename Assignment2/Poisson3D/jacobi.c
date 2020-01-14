@@ -8,6 +8,7 @@ jacobi(int N, double ***u) {
     double ***u_new = NULL;
     double cond =0.005;
     double stopTest = 100000;
+    double *** v = 0;
 
     if ( (u_old = d_malloc_3d(N, N, N)) == NULL ) {
         perror("array u: allocation failed");
@@ -19,7 +20,7 @@ jacobi(int N, double ***u) {
               	  while( sqrt(stopTest)<cond){
 	                  stopTest +=(u_new[i][j][k]-u_old[i][j][k])*(u_new[i][j][k]-u_old[i][j][k]);
 	                  u_old[i][j][k] = u_new[i][j][k];
-	                  u_new = 4; //formula and matrix
+	                  v = 1/6*(v[i-1][j][k]+u[i+1][j][k]+u[i][j-1][k]+u[i][j+1][k]+u[i][j][k-1]+u[i][j][k+1]); //formula and matrix
 
 
 	                  }
