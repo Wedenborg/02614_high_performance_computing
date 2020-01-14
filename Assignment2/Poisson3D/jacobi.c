@@ -7,7 +7,7 @@ jacobi(int N, double ***u, int max_iter) {
     double ***u_new = NULL;
     double cond =0.005;
     double stopTest = 100000;
-    double *** v = v;
+    double *** v = NULL;
 
     if ( (uu = d_malloc_3d(N, N, N)) == NULL ) {
         perror("array u: allocation failed");
