@@ -2,15 +2,31 @@
  * 
  */
 #include <math.h>
-
-void
 jacobi(int N, double ***u) {
 
-    double ***uu = NULL;
+    double ***u_old = NULL;
+    double ***u_new = NULL;
+    double cond =0.005;
+    double stopTest = 100000;
 
     if ( (uu = d_malloc_3d(N, N, N)) == NULL ) {
         perror("array u: allocation failed");
         exit(-1);
 
-    
-}
+
+    for( int i =0; i < N; i++){
+        for( int j = 0; j < N; j++){
+            for( int k = 0; k < N; k++){
+              	  while( sqrt(stopTest)<cond){
+	                  stopTest +=(u_new[i][j][k]-u_old[i][j][k])*(u_new[i][j][k]-u_old[i][j][k]);
+	                  u_old[i][j][k] = u_new[i][j][k];
+	                  u_new = 4; //formula and matrix
+
+
+	                  }
+
+                  }
+            }
+      }
+    }
+
