@@ -22,9 +22,22 @@ void jacobi(int N, double ***u, int max_iter) {
     double stopTest = 100000;
     double *** v = NULL;
 
+
+    // Initialize first guess as zero. 
     if ( (v = d_malloc_3d(N, N, N)) == NULL ) {
         perror("array u: allocation failed");
         exit(-1);
+    }
+
+    // init u
+    for( int i =0; i < N; i++){
+        for( int j = 0; j < N; j++){
+            for( int k = 0; k < N; k++){
+                // need to make the wall 20  
+            u[i][j][k] = 0;
+            }
+        }
+    }
 
 
 
