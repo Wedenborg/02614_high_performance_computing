@@ -26,8 +26,8 @@ jacobi(int N, double ***u, int max_iter) {
         for( int i =0; i < N; i++){
             for( int j = 0; j < N; j++){
                 for( int k = 0; k < N; k++){
-	                  stopTest +=(u_new[i][j][k]-u_old[i][j][k])*(u_new[i][j][k]-u_old[i][j][k]);
-	                   u[i][j][k]= 1/6*(v[i-1][j][k]+v[i+1][j][k]+v[i][j-1][k]+v[i][j+1][k]+v[i][j][k-1]+v[i][j][k+1]); //formula and matrix
+	                u[i][j][k]= 1/6*(v[i-1][j][k]+v[i+1][j][k]+v[i][j-1][k]+v[i][j+1][k]+v[i][j][k-1]+v[i][j][k+1]); //formula and matrix
+	                stopTest +=(u[i][j][k]-v[i][j][k])*(u[i][j][k]-v[i][j][k]);
 
 
 	                  }
