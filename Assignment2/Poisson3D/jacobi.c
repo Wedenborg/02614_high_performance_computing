@@ -5,6 +5,7 @@
 jacobi(int N, double ***u) {
 
     double ***u_old = NULL;
+    double ***u_new = NULL;
     double cond =0.005;
     double stopTest = 100000;
 
@@ -16,9 +17,9 @@ jacobi(int N, double ***u) {
         for( int j = 0; j < N; j++){
             for( int k = 0; k < N; k++){
               	  while( sqrt(stopTest)<cond){
-	                  stopTest +=(u_new[i][j][k]-u_old[i][j][k])*(u_new[i][j][k]-u_old[i][j][k])
+	                  stopTest +=(u_new[i][j][k]-u_old[i][j][k])*(u_new[i][j][k]-u_old[i][j][k]);
 	                  u_old[i][j][k] = u_new[i][j][k];
-	                  u_new = 4 //formula and matrix
+	                  u_new = 4; //formula and matrix
 
 
 	                  }
