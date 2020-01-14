@@ -44,13 +44,17 @@ main(int argc, char *argv[]) {
         perror("array u: allocation failed");
         exit(-1);
     }
+    
+    // Allocating a uu if the Gauss-Seidel
+    #ifdef _JACOBI
+    jacobi(N, ***u);
+    #endif
 
-    /*
-     *
-     * fill in your code here 
-     *
-     *
-     */
+    #ifdef _GAUSS_SEIDEL
+    gauss_seidel(N, ***u);
+    #endif
+
+
 
     // dump  results if wanted 
     switch(output_type) {
