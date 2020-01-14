@@ -4,9 +4,7 @@
 
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
 
-void matmult_blk(int m, int n, int k, double **A,double **B,double **C, int bs){
-/*
-nt main(void){
+/*int main(void){
 
     int m = 4;
     int n = 4;
@@ -19,6 +17,7 @@ nt main(void){
 
 */
     
+void matmult_blk(int m, int n, int k, double **A,double **B,double **C, int bs){
     for (int i = 0; i<m;i++){
         for (int j= 0;j<n;j++){
             C[i][j] =0;
@@ -38,6 +37,7 @@ nt main(void){
             }    
         }
     }
+}
     
 /*
     for(int i=0; i<m;i++){
@@ -47,5 +47,4 @@ nt main(void){
         }
     }
 */
-}
 
