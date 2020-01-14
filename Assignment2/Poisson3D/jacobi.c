@@ -2,13 +2,16 @@
  * 
  */
 #include <math.h>
-jacobi(int N, double ***u, int max_iter) {
+
+
+
+void jacobi(int N, double ***u, int max_iter) {
 
     double cond =0.005;
     double stopTest = 100000;
     double *** v = NULL;
 
-    if ( (uu = d_malloc_3d(N, N, N)) == NULL ) {
+    if ( (v = d_malloc_3d(N, N, N)) == NULL ) {
         perror("array u: allocation failed");
         exit(-1);
 
@@ -28,7 +31,6 @@ jacobi(int N, double ***u, int max_iter) {
                 for( int k = 0; k < N; k++){
 	                u[i][j][k]= 1/6*(v[i-1][j][k]+v[i+1][j][k]+v[i][j-1][k]+v[i][j+1][k]+v[i][j][k-1]+v[i][j][k+1]); //formula and matrix
 	                stopTest +=(u[i][j][k]-v[i][j][k])*(u[i][j][k]-v[i][j][k]);
-
 
 	                  }
 

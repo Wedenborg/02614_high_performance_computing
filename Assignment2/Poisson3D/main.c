@@ -44,6 +44,8 @@ main(int argc, char *argv[]) {
         perror("array u: allocation failed");
         exit(-1);
     }
+
+    for 
     
     // Allocating a uu if the Gauss-Seidel
     #ifdef _JACOBI
