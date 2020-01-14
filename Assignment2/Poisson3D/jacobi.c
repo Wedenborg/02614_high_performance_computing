@@ -12,12 +12,5 @@ jacobi(int N, double ***u) {
         perror("array u: allocation failed");
         exit(-1);
 
-    for( int i =0; i < N; i++){
-        for( int j = 0; j < N; j++){
-            for( int k = 0; k < N; k++){
-                uu[i][j][k] = u[i][j][k];
-            }
-        }
-    }
     
 }
