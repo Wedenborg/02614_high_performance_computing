@@ -20,7 +20,7 @@ jacobi(int N, double ***u) {
               	  while( sqrt(stopTest)<cond){
 	                  stopTest +=(u_new[i][j][k]-u_old[i][j][k])*(u_new[i][j][k]-u_old[i][j][k]);
 	                  u_old[i][j][k] = u_new[i][j][k];
-	                  v = 1/6*(v[i-1][j][k]+u[i+1][j][k]+u[i][j-1][k]+u[i][j+1][k]+u[i][j][k-1]+u[i][j][k+1]); //formula and matrix
+	                  v = 1/6*(u[i-1][j][k]+u[i+1][j][k]+u[i][j-1][k]+u[i][j+1][k]+u[i][j][k-1]+u[i][j][k+1]); //formula and matrix
 
 
 	                  }
