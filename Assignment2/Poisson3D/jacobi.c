@@ -8,6 +8,17 @@ jacobi(int N, double ***u, int max_iter) {
     double stopTest = 100000;
     double *** v = NULL;
 
+    // Initialize first guess as zero. 
+    double u = d_malloc_3d(N, N, N);
+    for( int i =0; i < N; i++){
+        for( int j = 0; j < N; j++){
+            for( int k = 0; k < N; k++){
+              u[i][j][k] = 0;
+            }
+        }
+    }
+
+
     if ( (uu = d_malloc_3d(N, N, N)) == NULL ) {
         perror("array u: allocation failed");
         exit(-1);
