@@ -4,7 +4,6 @@
 #include <math.h>
 jacobi(int N, double ***u, int max_iter) {
 
-    double ***u_new = NULL;
     double cond =0.005;
     double stopTest = 100000;
     double *** v = NULL;

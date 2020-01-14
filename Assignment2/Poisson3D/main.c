@@ -47,11 +47,11 @@ main(int argc, char *argv[]) {
     
     // Allocating a uu if the Gauss-Seidel
     #ifdef _JACOBI
-    jacobi(N, ***u);
+    jacobi(N, ***u, max_iter);
     #endif
 
     #ifdef _GAUSS_SEIDEL
-    gauss_seidel(N, ***u);
+    gauss_seidel(N, ***u, max_iter);
     #endif
 
 
