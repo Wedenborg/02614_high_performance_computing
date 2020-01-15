@@ -29,7 +29,7 @@ main(int argc, char *argv[]) {
     char	output_filename[FILENAME_MAX];
     double 	***u = NULL;
     double *** v = NULL;
-    double *** f = NULL
+    double *** f = NULL;
 
 
     /* get the paramters from the command line */
