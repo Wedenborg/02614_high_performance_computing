@@ -56,7 +56,7 @@ main(int argc, char *argv[]) {
                 }
                 else
                 {
-                    u[i][j][k] = 0;
+                    u[i][j][k] = start_T ;
                 }
             }
         }
