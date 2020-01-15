@@ -12,9 +12,9 @@ OBJS_GS	= $(MAIN_GS) gauss_seidel.o
 
 # options and settings for the GCC compilers
 #
-CC	= gcc
+CC	= gcc 
 DEFS	= 
-OPT	= -g 
+OPT	= -g -O3 -ffast-math -funroll-loops
 IPO	= 
 ISA	= 
 CHIP	= 
