@@ -51,7 +51,7 @@ main(int argc, char *argv[]) {
     for( int i =0; i < N; i++){
         for( int j = 0; j < N; j++){
             for( int k = 0; k < N; k++){
-                if( i==1 || i==-1 || j == 1|| k == -1 || k == 1  ){
+                if( i==0 || i==N-1 || j == 0|| k == 0 || k == N-1  ){
                     u[i][j][k] = 20;
                 }
                 else
@@ -77,7 +77,7 @@ main(int argc, char *argv[]) {
     for( int i =0; i < N; i++){
         for( int j = 0; j < N; j++){
             for( int k = 0; k < N; k++){
-                if( i >= -1 && i <= 0.375 && j >= -1 && j <= -0.5 && k >= -0.66666666667  && k <= 0 ){
+                if( i >= 0 && i <= 0.375*N*0.5 - 1 && j >= 0 && j <= .5*N*0.5-1 && k >= 0.66666666667*0.5*N-1  && k <= N*0.5-1 ){
                     f[i][j][k] = 200;
                 }
                 else{
