@@ -3,14 +3,14 @@
  */
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double tolerance) {
     double stopTest = 100000;
-    int count = 0;
+    int count = 0 ;
 
     while( sqrt(stopTest)>tolerance && count < iter_max){
         stopTest =0.0;
-
         for( int i =0; i < N; i++){
             for( int j = 0; j < N; j++){
                 for( int k = 0; k < N; k++){
@@ -26,10 +26,12 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
                     stopTest +=(u[i][j][k]-v[i][j][k])*(u[i][j][k]-v[i][j][k]);
 	            }
             }
-            count++;
+            
         }
-
+        printf("count: %d \n",&count);
+        printf("stopTest: %lf \n",&count);
+        count++;
     }
     free(v);
-    }
+}
 
