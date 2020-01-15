@@ -77,7 +77,7 @@ main(int argc, char *argv[]) {
     for( int i =0; i < N; i++){
         for( int j = 0; j < N; j++){
             for( int k = 0; k < N; k++){
-                if( i >= 0 && i <= 0.375*N*0.5 - 1 && j >= 0 && j <= .5*N*0.5-1 && k >= 0.66666666667*0.5*N-1  && k <= N*0.5-1 ){
+                if( i >= 0 && i <= 5/8*N*0.5 - 1 && j >= 0 && j <= .5*N*0.5-1 && k >= 1/3*0.5*N-1  && k <= N*0.5-1 ){
                     f[i][j][k] = 200;
                 }
                 else{
@@ -93,7 +93,7 @@ main(int argc, char *argv[]) {
 
     // Allocating a uu if the Gauss-Seidel
     #ifdef _JACOBI
-    jacobi(N, u, v, f, iter_max);
+    jacobi(N, u, v, f, iter_max,tolerance);
     #endif
 
     #ifdef _GAUSS_SEIDEL

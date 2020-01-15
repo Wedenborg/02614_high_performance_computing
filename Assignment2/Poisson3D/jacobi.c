@@ -4,12 +4,11 @@
 #include <math.h>
 #include <stdlib.h>
 
-void jacobi(int N, double ***u, double ***v, double ***f, int iter_max) {
-    double cond =0.005;
+void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double tolerance) {
     double stopTest = 100000;
     int count = 0;
 
-    while( sqrt(stopTest)<iter_max && count < iter_max){
+    while( sqrt(stopTest)>tolerance && count < iter_max){
         stopTest =0.0;
 
         for( int i =0; i < N; i++){
