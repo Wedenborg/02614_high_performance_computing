@@ -4,7 +4,6 @@
 #ifndef _GAUSS_SEIDEL_H
 #define _GAUSS_SEIDEL_H
 
-// define your function prototype here
-// gauss_seidel(...);
+int gauss_seidel(int N, double ***u, double ***v, double ***f, int iter_max, double tolerance);
 
 #endif

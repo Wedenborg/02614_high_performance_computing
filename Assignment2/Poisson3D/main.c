@@ -97,7 +97,7 @@ main(int argc, char *argv[]) {
     #endif
 
     #ifdef _GAUSS_SEIDEL
-    gauss_seidel(N, **u, iter_max);
+    gauss_seidel(N, u, v, f, iter_max,tolerance);
     #endif
 
 
