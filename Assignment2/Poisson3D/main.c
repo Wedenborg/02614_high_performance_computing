@@ -63,13 +63,13 @@ main(int argc, char *argv[]) {
 
     // Initialize first guess as zero. 
     if ( (v = d_malloc_3d(N, N, N)) == NULL ) {
-        perror("array u: allocation failed");
+        perror("array v: allocation failed");
         exit(-1);
     }
 
     // Allocating a f matrix
     if ( (f = d_malloc_3d(N, N, N)) == NULL ) {
-    perror("array u: allocation failed");
+    perror("array f: allocation failed");
     exit(-1);
     }
 
