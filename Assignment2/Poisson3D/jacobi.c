@@ -4,19 +4,6 @@
 #include <math.h>
 #include <stdlib.h>
 
-int f(int i,int j,int k){
-    if( i >= -1 && i <= 0.375 ){
-        if( j >= -1 && j <= -0.5){
-            if( k >= -0.66666666667  && k <= 0){
-                return 200;
-            }
-        }
-    }
-    else{
-        return 0;
-    }
-}
-
 void jacobi(int N, double ***u, double ***v, int iter_max) {
 
     double cond =0.005;

@@ -29,10 +29,11 @@ main(int argc, char *argv[]) {
     char	output_filename[FILENAME_MAX];
     double 	***u = NULL;
     double *** v = NULL;
+    double *** f = NULL
 
 
     /* get the paramters from the command line */
-    N         = atoi(argv[1]);	// grid size
+    N         = atoi(argv[1])+2;	// grid size
     iter_max  = atoi(argv[2]);  // max. no. of iterations
     tolerance = atof(argv[3]);  // tolerance
     start_T   = atof(argv[4]);  // start T for all inner grid points
@@ -65,6 +66,28 @@ main(int argc, char *argv[]) {
         perror("array u: allocation failed");
         exit(-1);
     }
+
+    // Allocating a f matrix
+    if ( (f = d_malloc_3d(N, N, N)) == NULL ) {
+    perror("array u: allocation failed");
+    exit(-1);
+    }
+
+    for( int i =0; i < N; i++){
+        for( int j = 0; j < N; j++){
+            for( int k = 0; k < N; k++){
+                if( i >= -1 && i <= 0.375 && j >= -1 && j <= -0.5 && k >= -0.66666666667  && k <= 0 ){
+                    f[i][j][k] = 200;
+                }
+                else{
+                    f[i][j][k] = 0;
+                }
+            }
+        }
+    }
+
+
+
 
 
     // Allocating a uu if the Gauss-Seidel
