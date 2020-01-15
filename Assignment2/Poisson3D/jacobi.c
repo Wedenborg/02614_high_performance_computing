@@ -9,8 +9,7 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
     double stopTest = 100000;
     int counter =0 ;
 
-    //while( sqrt(stopTest)>tolerance && counter < iter_max){
-    while( counter < iter_max){
+    while( sqrt(stopTest)>tolerance && counter < iter_max){
         stopTest =0.0;
         for( int i =0; i < N; i++){
             for( int j = 0; j < N; j++){
@@ -23,16 +22,18 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
             for( int j = 1; j < N-1; j++){
                 for( int k = 1; k < N-1; k++){
 	                u[i][j][k] = 1./6.*(v[i-1][j][k]+v[i+1][j][k]+v[i][j-1][k]+v[i][j+1][k]+v[i][j][k-1]+v[i][j][k+1] + (N-2)*(N-2) * f[i][j][k]); //formula and matrix      
-                    if(i==1)
-                        //printf("u(%d,%d,%d) = %lf \n",i,j,k, u[i][j][k]);
+                    //printf("u(%d,%d,%d) = %lf \n",i,j,k, u[i][j][k]);
 
-                    stopTest +=(u[i][j][k]-v[i][j][k])*(u[i][j][k]-v[i][j][k]);
+                    //printf("v(%d,%d,%d) = %lf \n",i,j,k, v[i][j][k]);
+
+                    stopTest +=sqrt((u[i][j][k]-v[i][j][k])*(u[i][j][k]-v[i][j][k]));
+                    
 	            }
             }
             
         }
-        printf("count: %d \n",counter);
-        printf("stopTest: %lf \n",&counter);
+        //printf("stopTest: %lf \n",stopTest);
+        //printf("count: %d \n",counter); 
         counter++;
     }
     free(v);
