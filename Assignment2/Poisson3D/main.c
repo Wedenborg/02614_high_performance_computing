@@ -33,7 +33,8 @@ main(int argc, char *argv[]) {
 
 
     /* get the paramters from the command line */
-    N         = atoi(argv[1])+2;	// grid size
+    N         = atoi(argv[1]);	// grid size
+    N = N+2;
     iter_max  = atoi(argv[2]);  // max. no. of iterations
     tolerance = atof(argv[3]);  // tolerance
     start_T   = atof(argv[4]);  // start T for all inner grid points
@@ -92,7 +93,7 @@ main(int argc, char *argv[]) {
 
     // Allocating a uu if the Gauss-Seidel
     #ifdef _JACOBI
-    jacobi(N, u, v, iter_max);
+    jacobi(N, u, v, f, iter_max);
     #endif
 
     #ifdef _GAUSS_SEIDEL
