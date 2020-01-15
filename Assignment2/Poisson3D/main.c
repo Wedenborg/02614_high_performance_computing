@@ -51,7 +51,7 @@ main(int argc, char *argv[]) {
     for( int i =0; i < N; i++){
         for( int j = 0; j < N; j++){
             for( int k = 0; k < N; k++){
-                if( i==0 || i==N-1 || j == 0|| k == 0 || k == N-1  ){
+                if( i==0 || i==N-1 || j == N-1|| k == 0 || k == N-1  ){
                     u[i][j][k] = 20;
                 }
                 else
