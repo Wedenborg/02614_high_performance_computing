@@ -5,7 +5,6 @@
 #include <stdlib.h>
 
 void jacobi(int N, double ***u, double ***v, double ***f, int iter_max) {
-    N = N+2;
     double cond =0.005;
     double stopTest = 100000;
 
