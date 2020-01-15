@@ -2,6 +2,7 @@
  * 
  */
 #include <math.h>
+#include <stdlib.h>
 
 int f(int i,int j,int k){
     if( i >= -1 && i <= 0.375 ){
