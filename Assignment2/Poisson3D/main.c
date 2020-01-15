@@ -28,6 +28,7 @@ main(int argc, char *argv[]) {
     char        *output_ext    = "";
     char	output_filename[FILENAME_MAX];
     double 	***u = NULL;
+    double *** v = NULL;
 
 
     /* get the paramters from the command line */
@@ -44,16 +45,35 @@ main(int argc, char *argv[]) {
         perror("array u: allocation failed");
         exit(-1);
     }
+    // init u
+    for( int i =0; i < N; i++){
+        for( int j = 0; j < N; j++){
+            for( int k = 0; k < N; k++){
+                if( i==1 || i==-1 || j == 1|| k == -1 || k == 1  ){
+                    u[i][j][k] = 20;
+                }
+                else
+                {
+                    u[i][j][k] = 0;
+                }
+            }
+        }
+    }
 
-    for 
-    
+    // Initialize first guess as zero. 
+    if ( (v = d_malloc_3d(N, N, N)) == NULL ) {
+        perror("array u: allocation failed");
+        exit(-1);
+    }
+
+
     // Allocating a uu if the Gauss-Seidel
     #ifdef _JACOBI
-    jacobi(N, ***u, iter_max);
+    jacobi(N, u, v, iter_max);
     #endif
 
     #ifdef _GAUSS_SEIDEL
-    gauss_seidel(N, ***u, iter_max);
+    gauss_seidel(N, **u, iter_max);
     #endif
 
 
