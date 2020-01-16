@@ -23,15 +23,15 @@ EXECUTABLE=poisson_gs
 
 # define the mkn values in the MKN variable
 #
-Size="50 100 150 200"
+Size="25 50 75 100 125 150"
 
 # define the permutation type in PERM
 #
-max_iter=10000000
+max_iter=1000000
 
 # uncomment and set a reasonable BLKSIZE for the blk version
 #
-tol=0.00005
+tol=0.05
 
 T_time=15
 
