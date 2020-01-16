@@ -1,0 +1,114 @@
+Loaded dependency [gcc/6.3.0]: binutils/2.29
+Loaded module: gcc/6.3.0
+Total iterations: 125 
+real	0m0.016s
+user	0m0.010s
+sys	0m0.003s
+Total iterations: 406 
+real	0m0.326s
+user	0m0.324s
+sys	0m0.001s
+Total iterations: 813 
+real	0m2.214s
+user	0m2.205s
+sys	0m0.006s
+Total iterations: 1334 
+real	0m8.654s
+user	0m8.631s
+sys	0m0.012s
+Total iterations: 1959 
+real	0m26.962s
+user	0m26.913s
+sys	0m0.012s
+Total iterations: 2682 
+real	1m8.441s
+user	1m8.318s
+sys	0m0.031s
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-21-28>
+Subject: Job 5096589: <Gauss> in cluster <dcc> Done
+
+Job <Gauss> was submitted from host <n-62-30-8> by user <s164535> in cluster <dcc> at Thu Jan 16 14:20:05 2020
+Job was executed on host(s) <n-62-21-28>, in queue <hpcintro>, as user <s164535> in cluster <dcc> at Thu Jan 16 14:20:07 2020
+</zhome/1e/7/117649> was used as the home directory.
+</zhome/1e/7/117649/Documents/02614/Assignment_2/Poisson3D> was used as the working directory.
+Started at Thu Jan 16 14:20:07 2020
+Terminated at Thu Jan 16 14:21:54 2020
+Results reported at Thu Jan 16 14:21:54 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+# 02614 - High-Performance Computing, January 2018
+# 
+# batch script to run collect on a decidated server in the hpcintro
+# queue
+#
+# Author: Bernd Dammann <bd@cc.dtu.dk>
+#
+#BSUB -J Gauss
+#BSUB -o Gauss_%J
+#BSUB -q hpcintro
+#BSUB -n 1
+#BSUB -R "rusage[mem=5000]"
+#BSUB -W 00:59
+
+module load gcc
+
+# define the driver name to use
+# valid values: matmult_c.studio, matmult_f.studio, matmult_c.gcc or
+# matmult_f.gcc
+#
+EXECUTABLE=poisson_gs
+
+# define the mkn values in the MKN variable
+#
+Size="25 50 75 100 125 150"
+
+# define the permutation type in PERM
+#
+max_iter=1000000
+
+# uncomment and set a reasonable BLKSIZE for the blk version
+#
+tol=0.5
+
+T_time=15
+
+# define the max no. of iterations the driver should use - adjust to
+# get a reasonable run time.  You can get an estimate by trying this
+# on the command line, i.e. "MFLOPS_MAX_IT=10 ./matmult_...." for the
+# problem size you want to analyze.
+#
+export MFLOPS_MAX_IT=50000
+
+# experiment name 
+#
+JID=${LSB_JOBID}
+EXPOUT="$LSB_JOBNAME.${JID}.er"
+
+# uncomment the HWCOUNT line, if you want to use hardware counters
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   106.82 sec.
+    Max Memory :                                 85 MB
+    Average Memory :                             69.83 MB
+    Total Requested Memory :                     5000.00 MB
+    Delta Memory :                               4915.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   107 sec.
+    Turnaround time :                            109 sec.
+
+The output (if any) is above this job summary.
+
