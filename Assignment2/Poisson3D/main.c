@@ -54,6 +54,9 @@ main(int argc, char *argv[]) {
                 if( i==0 || i==N-1 || j == N-1|| k == 0 || k == N-1  ){
                     u[i][j][k] = 20;
                 }
+                else if (j == 0){
+                    u[i][j][k] = 0;
+                }
                 else
                 {
                     u[i][j][k] = start_T ;
