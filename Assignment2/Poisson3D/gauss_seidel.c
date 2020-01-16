@@ -9,7 +9,7 @@ void gauss_seidel(int N, double ***u, double ***v, double ***f, int iter_max, do
     double stopTest = 100000;
     int counter =0 ;
 
-    while( sqrt(stopTest)>tolerance && counter < iter_max){
+    while(stopTest>tolerance && counter < iter_max){
         stopTest =0.0;
         for( int i =0; i < N; i++){
             for( int j = 0; j < N; j++){
@@ -32,8 +32,9 @@ void gauss_seidel(int N, double ***u, double ***v, double ***f, int iter_max, do
             }
             
         }
-        //printf("stopTest: %lf \n",stopTest);
-        //printf("count: %d \n",counter); 
+	printf("%d ",counter);
+        printf("%lf \n ",stopTest);
+         
         counter++;
     }
     free(v);

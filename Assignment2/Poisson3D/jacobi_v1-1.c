@@ -13,7 +13,7 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
     int counter =0;
     int i,j,k;
 
-    while( sqrt(stopTest)>tolerance && counter < iter_max){
+    while(stopTest>tolerance && counter < iter_max){
         stopTest =0.0;
         for( int i =0; i < N; i++){
             for( int j = 0; j < N; j++){
@@ -35,6 +35,7 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
                     
 	            }
             }
+<<<<<<< HEAD:Assignment2/Poisson3D/jacobi_v1.1.c
             /*
             int t_id = -1;
 
@@ -43,9 +44,17 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
             printf("Worker:  %d!\n", t_id);
             */
         } // End omp
+=======
+            
+        }
+	printf("%d ",counter);
+        printf("%lf \n",stopTest);
+         
+>>>>>>> 33f7daf52eeabdffeffd633cb940cae0df7c4891:Assignment2/Poisson3D/jacobi.c
         counter++;
     
     }
+    //printf("Iterations: %d \n",counter);
     free(v);
 }
 
