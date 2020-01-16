@@ -108,14 +108,15 @@ main(int argc, char *argv[]) {
         #ifdef _JACOBI
         jacobi(N, u, v, f, iter_max,tolerance);
         #endif
-        te = omp_get_wtime() - ts;
-        printf("%d ", Threads);
-        printf("%d ",N-2);
-        printf("%lf \n",te);
 
         #ifdef _GAUSS_SEIDEL
         gauss_seidel(N, u, v, f, iter_max,tolerance);
         #endif
+        
+        te = omp_get_wtime() - ts;
+        printf("%d ", Threads);
+        printf("%d ",N-2);
+        printf("%lf \n",te);
 
     }   
 
