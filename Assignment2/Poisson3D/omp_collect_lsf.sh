@@ -21,10 +21,10 @@ module load studio
 
 # define the executable here
 #
-EXECUTABLE=mandelbrot
+EXECUTABLE=possion_j
 
 # define any command line options for your executable here
-# EXECOPTS=
+# EXECOPTS= 100 2000 0.05 15
 
 # set some OpenMP variables here
 #
