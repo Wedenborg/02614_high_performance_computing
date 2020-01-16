@@ -1,9 +1,9 @@
-size = [ 25 50 75 100 125 150];
+size = [ 75 100 125 150];
 
 mem = size.^3*3*64;% bits
 
 mem = mem*1/8*0.001; % kB
 
-real1 = [ 0.128 ]
+v1 = importdata('v1UpScale.txt')
 
-user1 = [ 
+v1(:,3)=2000./v1(:,3)

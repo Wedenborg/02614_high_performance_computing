@@ -14,12 +14,12 @@ module load gcc
 
 THREADS="1 2 4 8 12 16 20 24"
 CMD=poisson_j
-N=50
+N=1
 IT=2000
 TOL=0.0005
 TS=15
 
 for t in $THREADS
 do
-    time OMP_NUM_THREADS=$t ./$CMD $N $IT $TOL $TS 
+    OMP_NUM_THREADS=$t ./$CMD $t $IT $TOL $TS 
 done
