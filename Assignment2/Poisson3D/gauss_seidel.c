@@ -26,7 +26,7 @@ void gauss_seidel(int N, double ***u, double ***v, double ***f, int iter_max, do
 
                     //printf("v(%d,%d,%d) = %lf \n",i,j,k, v[i][j][k]);
 
-                    stopTest +=sqrt((u[i][j][k]-v[i][j][k])*(u[i][j][k]-v[i][j][k]));
+                    stopTest +=(u[i][j][k]-v[i][j][k])*(u[i][j][k]-v[i][j][k]);
                     
 	            }
             }

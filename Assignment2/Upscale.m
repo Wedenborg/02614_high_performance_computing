@@ -4,4 +4,6 @@ mem = size.^3*3*64;% bits
 
 mem = mem*1/8*0.001; % kB
 
-mem(1)
+real1 = [ 0.128 ]
+
+user1 = [ 

@@ -30,18 +30,18 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
 
                     //printf("v(%d,%d,%d) = %lf \n",i,j,k, v[i][j][k]);
 
-                    stopTest +=sqrt((u[i][j][k]-v[i][j][k])*(u[i][j][k]-v[i][j][k]));
+                    stopTest +=(u[i][j][k]-v[i][j][k])*(u[i][j][k]-v[i][j][k]);
                     
 	            }
             }
+            /*
             int t_id = -1;
 
             t_id = omp_get_thread_num(); 
 
             printf("Worker:  %d!\n", t_id);
+            */
         } // End omp
-        //printf("stopTest: %lf \n",stopTest);
-        //printf("count: %d \n",counter); 
         counter++;
     
     }
