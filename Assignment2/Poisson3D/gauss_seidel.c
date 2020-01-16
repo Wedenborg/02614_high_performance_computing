@@ -9,15 +9,8 @@ void gauss_seidel(int N, double ***u, double ***v, double ***f, int iter_max, do
     double stopTest = 100000;
     int counter =0 ;
 
-    while(stopTest>tolerance && counter < iter_max){
+    while(sqrt(stopTest)>tolerance && counter < iter_max){
         stopTest =0.0;
-        for( int i =0; i < N; i++){
-            for( int j = 0; j < N; j++){
-                for( int k = 0; k < N; k++){
-                    v[i][j][k] = u[i][j][k];
-                }
-            }
-        }
         for( int i =1; i < N-1; i++){
             for( int j = 1; j < N-1; j++){
                 for( int k = 1; k < N-1; k++){
@@ -32,12 +25,12 @@ void gauss_seidel(int N, double ***u, double ***v, double ***f, int iter_max, do
             }
             
         }
-	printf("%d ",counter);
-        printf("%lf \n ",stopTest);
+	//printf("%d ",counter);
+        //printf("%lf \n ",stopTest);
          
         counter++;
     }
-    free(v);
+    printf("Total iterations: %d ",counter);
 }
 
 
