@@ -13,7 +13,7 @@
 #
 #BSUB -J collector
 #BSUB -q hpcintro
-#BSUB -n 4
+#BSUB -n 24
 #BSUB -W 15
 
 
@@ -29,7 +29,7 @@ EXECUTABLE=poisson_j
 # set some OpenMP variables here
 #
 # no. of threads
-export OMP_NUM_THREADS=$LSB_DJOB_NUMPROC
+export OMP_NUM_THREADS=4
 #
 # keep idle threads spinning (needed to monitor idle times!)
 export OMP_WAIT_POLICY=active
@@ -44,4 +44,4 @@ JID=${LSB_JOBID}
 EXPOUT="$LSB_JOBNAME.${JID}.er"
 
 # start the collect command with the above settings
-collect -o $EXPOUT ./$EXECUTABLE 100 2000 0.05 15
+collect -o $EXPOUT ./$EXECUTABLE 150 2000 0.05 15

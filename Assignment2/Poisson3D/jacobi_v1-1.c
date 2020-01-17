@@ -35,9 +35,7 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
                     
 	            }
             }
-
-        counter++;
-    
+        }
     }
     //printf("Iterations: %d \n",counter);
     free(v);
