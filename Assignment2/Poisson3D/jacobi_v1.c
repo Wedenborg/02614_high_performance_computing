@@ -12,7 +12,8 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
     double stopTest = 100000;
     int counter =0;
     int i,j,k;
-    while( sqrt(stopTest)>tolerance && counter < iter_max){
+
+    while(stopTest>tolerance && counter < iter_max){
         stopTest =0.0;
         for( int i =0; i < N; i++){
             for( int j = 0; j < N; j++){
@@ -34,17 +35,10 @@ void jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double t
                     
 	            }
             }
-            /*
-            int t_id = -1;
-
-            t_id = omp_get_thread_num(); 
-
-            printf("Worker:  %d!\n", t_id);
-            */
-        } // End omp
+        }
         counter++;
-    
     }
+    //printf("Iterations: %d \n",counter);
     free(v);
 }
 

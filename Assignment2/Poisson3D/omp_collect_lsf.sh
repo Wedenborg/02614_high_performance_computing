@@ -21,10 +21,10 @@ module load studio
 
 # define the executable here
 #
-EXECUTABLE=possion_j
+EXECUTABLE=poisson_j
 
 # define any command line options for your executable here
-# EXECOPTS= 100 2000 0.05 15
+# EXECOPTS=100 2000 0.05 15
 
 # set some OpenMP variables here
 #
@@ -44,4 +44,4 @@ JID=${LSB_JOBID}
 EXPOUT="$LSB_JOBNAME.${JID}.er"
 
 # start the collect command with the above settings
-collect -o $EXPOUT ./$EXECUTABLE $EXECOPTS
+collect -o $EXPOUT ./$EXECUTABLE 100 2000 0.05 15

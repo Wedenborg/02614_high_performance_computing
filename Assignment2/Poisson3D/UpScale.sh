@@ -1,7 +1,7 @@
 #!/bin/bash
 #BSUB -q hpcintro
 #BSUB -n 24
-#BSUB -W 15
+#BSUB -W 50
 #BSUB -J bench_poisson
 #BSUB -o bench_poisson_%J.out
 #BSUB -N

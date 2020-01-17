@@ -49,8 +49,8 @@ main(int argc, char *argv[]) {
     int Threads;
     Threads = N-2;
 
-    for(int n =0; n<4; n++){
-        N = n*25 + 75+2;
+    for(int n =0; n<10; n++){
+        N = n*20 + 70+2;
         // allocate memory
         if ( (u = d_malloc_3d(N, N, N)) == NULL ) {
             perror("array u: allocation failed");
@@ -108,15 +108,16 @@ main(int argc, char *argv[]) {
         #ifdef _JACOBI
         jacobi(N, u, v, f, iter_max,tolerance);
         #endif
+        te = omp_get_wtime() - ts;
+        printf("%d ", Threads);
+        printf("%d ",N-2);
+        printf("%lf \n",te);
 
         #ifdef _GAUSS_SEIDEL
         gauss_seidel(N, u, v, f, iter_max,tolerance);
         #endif
         
-        te = omp_get_wtime() - ts;
-        printf("%d ", Threads);
-        printf("%d ",N-2);
-        printf("%lf \n",te);
+
 
     }   
 
