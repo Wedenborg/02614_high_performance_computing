@@ -1,7 +1,6 @@
 #!/bin/bash
-#BSUB -q hpcintro
 #BSUB -n 24
-#BSUB -W 50
+#BSUB -W 10
 #BSUB -J bench_poisson
 #BSUB -o bench_poisson_%J.out
 #BSUB -N
@@ -21,5 +20,5 @@ TS=15
 
 for t in $THREADS
 do
-    OMP_NUM_THREADS=$t ./$CMD $t $IT $TOL $TS 
+    OMP_NUM_THREADS=$t OMP_PLACES=cores OMP_PROC_BIND=spread ./$CMD $t $IT $TOL $TS 
 done
