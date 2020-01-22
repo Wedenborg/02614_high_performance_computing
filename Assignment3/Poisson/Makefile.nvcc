@@ -1,6 +1,11 @@
-TARGET	= libmatmult.so
-LIBSRCS	= 
-LIBOBJS	= 
+TARGET	= jacobi_gpu1
+
+LIBSRCS	= main.cu print.cu alloc3d.cu
+LIBOBJS	= print.o alloc3d.c
+MAIN_gpu1 = main_gpu1
+
+OBSJ_gpu1 = $(MAIN_gpu1) jacobi_gpu1.o
+
 
 OPT	= -g -O3
 PIC = -fpic
@@ -21,6 +26,9 @@ XLIBS	= -lcublas
 
 $(TARGET): $(LIBOBJS)
 	$(CXX) -o $@ $(CXXFLAGS) $(SOFLAGS) $(INCLUDES) $^ $(XLIBS)
+
+$(MAIN_gpu1):
+	$(CXX) -o $@ -D_JACOBIGPU1 $(CXXFLAGS) -cu main.cu
 
 .SUFFIXES: .cu
 .cu.o:
