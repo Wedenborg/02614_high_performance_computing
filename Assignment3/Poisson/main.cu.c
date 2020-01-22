@@ -77,7 +77,7 @@ main(int argc, char *argv[]) {
     
     // init u, f
     #pragma omp parallel for default(none) shared(u,f, N, start_T) private( i, j, k)
-    for( i =0; i < N; i++){
+    //for( i =0; i < N; i++){
         for( j = 0; j < N; j++){
             for( k = 0; k < N; k++){
                 if( i==0 || i==N-1 || j == N-1|| k == 0 || k == N-1  ){
@@ -98,7 +98,7 @@ main(int argc, char *argv[]) {
                 }
             }
         }
-    }
+    //}
     // slut omp
 
     // for( int i =0; i < N; i++){
@@ -118,8 +118,22 @@ main(int argc, char *argv[]) {
 
 
 
-    // Allocating a uu if the Gauss-Seidel
-    
+    #define N 2880
+
+    // CPU reference transpose for checking result
+    jacobi(N, h_u, h_v, h_f, iter_max,tolerance);
+
+    // Transfer matrix to device
+    cudaMemcpy(h_u, d_u, u_size, cudaMemcpyHostToDevice);
+    cudaMemcpy(h_v, d_v, v_size, cudaMemcpyHostToDevice);
+    cudaMemcpy(h_f, d_f, f_size, cudaMemcpyHostToDevice);
+    jacobi_serial<<<1, 1>>>(N, d_u, d_v, d_f, iter_max,tolerance);
+    cudaDeviceSynchronize();
+    // Transfer result to host
+
+    cudaMemcpy(h_u, d_u, u_size, cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_v, d_v, v_size, cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_f, d_f, f_size, cudaMemcpyDeviceToHost);   
     // Allocating a uu if the Gauss-Seidel
     ts = omp_get_wtime();
     #ifdef _JACOBI
