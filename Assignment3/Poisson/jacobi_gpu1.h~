@@ -7,6 +7,6 @@
 #define _JACOBIGPU1_H
 
 __global__
-void jacobi_serial(int N, double ***u, double ***v, double ***f, int iter_max);
+int jacobi(int N, double ***u, double ***v, double ***f, int iter_max, double tolerance);
 
 #endif
