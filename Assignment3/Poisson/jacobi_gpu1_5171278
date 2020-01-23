@@ -1,0 +1,175 @@
+Loaded dependency [gcc/8.3.0]: binutils/2.29
+Loaded module: gcc/8.3.0
+Loaded module: cuda/10.2
+==70625== NVPROF is profiling process 70625, command: ./jacobi_gpu2 25 1000 10 15
+==70625== Profiling application: ./jacobi_gpu2 25 1000 10 15
+==70625== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   99.15%  12.213ms         1  12.213ms  12.213ms  12.213ms  jacobi_per_elem(int, double***, double***, double***, int)
+                    0.38%  47.264us         3  15.754us  15.424us  16.000us  [CUDA memcpy HtoD]
+                    0.31%  38.271us         3  12.757us  12.575us  13.120us  [CUDA memcpy DtoH]
+                    0.09%  10.912us         3  3.6370us  3.3600us  3.9360us  d_malloc_3d_gpu_kernel2(double***, int, int, int)
+                    0.06%  7.8400us         3  2.6130us  2.3040us  3.2000us  d_malloc_3d_gpu_kernel1(double***, int, int, int)
+1000000 
+27 
+0.012230 
+==70643== NVPROF is profiling process 70643, command: ./jacobi_gpu2 30 1000 10 15
+==70643== Profiling application: ./jacobi_gpu2 30 1000 10 15
+==70643== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   99.02%  15.496ms         1  15.496ms  15.496ms  15.496ms  jacobi_per_elem(int, double***, double***, double***, int)
+                    0.46%  72.288us         3  24.096us  23.712us  24.384us  [CUDA memcpy HtoD]
+                    0.40%  61.920us         3  20.640us  20.480us  20.928us  [CUDA memcpy DtoH]
+                    0.07%  10.240us         3  3.4130us  3.2960us  3.6160us  d_malloc_3d_gpu_kernel2(double***, int, int, int)
+                    0.05%  8.3200us         3  2.7730us  2.5920us  3.1360us  d_malloc_3d_gpu_kernel1(double***, int, int, int)
+1000000 
+32 
+0.015529 
+==70658== NVPROF is profiling process 70658, command: ./jacobi_gpu2 40 1000 10 15
+==70658== Profiling application: ./jacobi_gpu2 40 1000 10 15
+==70658== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   97.62%  12.862ms         1  12.862ms  12.862ms  12.862ms  jacobi_per_elem(int, double***, double***, double***, int)
+                    1.17%  153.95us         3  51.317us  51.040us  51.712us  [CUDA memcpy HtoD]
+                    1.06%  139.65us         3  46.549us  46.112us  47.072us  [CUDA memcpy DtoH]
+                    0.08%  11.008us         3  3.6690us  3.3280us  4.0640us  d_malloc_3d_gpu_kernel2(double***, int, int, int)
+                    0.06%  8.3520us         3  2.7840us  2.5280us  3.2960us  d_malloc_3d_gpu_kernel1(double***, int, int, int)
+1000000 
+42 
+0.012914 
+==70672== NVPROF is profiling process 70672, command: ./jacobi_gpu2 50 1000 10 15
+==70672== Profiling application: ./jacobi_gpu2 50 1000 10 15
+==70672== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   97.80%  25.792ms         1  25.792ms  25.792ms  25.792ms  jacobi_per_elem(int, double***, double***, double***, int)
+                    1.11%  293.18us         3  97.728us  97.312us  98.368us  [CUDA memcpy HtoD]
+                    1.01%  267.10us         3  89.034us  88.928us  89.216us  [CUDA memcpy DtoH]
+                    0.04%  10.272us         3  3.4240us  3.2960us  3.6480us  d_malloc_3d_gpu_kernel2(double***, int, int, int)
+                    0.03%  8.3840us         3  2.7940us  2.6240us  3.1040us  d_malloc_3d_gpu_kernel1(double***, int, int, int)
+1000000 
+52 
+0.025867 
+==70691== NVPROF is profiling process 70691, command: ./jacobi_gpu2 60 1000 10 15
+==70691== Profiling application: ./jacobi_gpu2 60 1000 10 15
+==70691== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   95.69%  36.396ms         1  36.396ms  36.396ms  36.396ms  jacobi_per_elem(int, double***, double***, double***, int)
+                    3.07%  1.1670ms         3  389.01us  305.54us  548.99us  [CUDA memcpy HtoD]
+                    1.19%  452.03us         3  150.68us  148.83us  153.57us  [CUDA memcpy DtoH]
+                    0.03%  10.336us         3  3.4450us  3.3280us  3.6800us  d_malloc_3d_gpu_kernel2(double***, int, int, int)
+                    0.02%  8.6080us         3  2.8690us  2.6240us  3.3280us  d_malloc_3d_gpu_kernel1(double***, int, int, int)
+1000000 
+62 
+0.036473 
+==70705== NVPROF is profiling process 70705, command: ./jacobi_gpu2 75 1000 10 15
+==70705== Profiling application: ./jacobi_gpu2 75 1000 10 15
+==70705== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   91.97%  63.150ms         1  63.150ms  63.150ms  63.150ms  jacobi_per_elem(int, double***, double***, double***, int)
+                    4.26%  2.9283ms         3  976.10us  550.37us  1.8028ms  [CUDA memcpy DtoH]
+                    3.74%  2.5683ms         3  856.12us  755.74us  1.0424ms  [CUDA memcpy HtoD]
+                    0.02%  10.624us         3  3.5410us  3.3600us  3.6480us  d_malloc_3d_gpu_kernel2(double***, int, int, int)
+                    0.01%  8.0320us         3  2.6770us  2.4320us  3.1360us  d_malloc_3d_gpu_kernel1(double***, int, int, int)
+1000000 
+77 
+0.063197 
+==70720== NVPROF is profiling process 70720, command: ./jacobi_gpu2 100 1000 10 15
+==70720== Profiling application: ./jacobi_gpu2 100 1000 10 15
+==70720== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   91.22%  152.52ms         1  152.52ms  152.52ms  152.52ms  jacobi_per_elem(int, double***, double***, double***, int)
+                    4.77%  7.9771ms         3  2.6590ms  1.5017ms  4.6949ms  [CUDA memcpy DtoH]
+                    3.99%  6.6789ms         3  2.2263ms  2.1062ms  2.4474ms  [CUDA memcpy HtoD]
+                    0.01%  10.944us         3  3.6480us  3.6160us  3.6800us  d_malloc_3d_gpu_kernel2(double***, int, int, int)
+                    0.00%  8.3520us         3  2.7840us  2.6240us  3.0720us  d_malloc_3d_gpu_kernel1(double***, int, int, int)
+1000000 
+102 
+0.152590 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-13>
+Subject: Job 5171278: <Jacobi_gpu1> in cluster <dcc> Done
+
+Job <Jacobi_gpu1> was submitted from host <n-62-20-7> by user <s164535> in cluster <dcc> at Thu Jan 23 16:07:29 2020
+Job was executed on host(s) <n-62-20-13>, in queue <hpcintrogpu>, as user <s164535> in cluster <dcc> at Thu Jan 23 16:07:30 2020
+</zhome/1e/7/117649> was used as the home directory.
+</zhome/1e/7/117649/Documents/02614/Assignment_3/Poisson> was used as the working directory.
+Started at Thu Jan 23 16:07:30 2020
+Terminated at Thu Jan 23 16:07:36 2020
+Results reported at Thu Jan 23 16:07:36 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+# 02614 - High-Performance Computing, January 2018
+# 
+# batch script to run collect on a decidated server in the hpcintro
+# queue
+#
+# Author: Bernd Dammann <bd@cc.dtu.dk>
+#
+#BSUB -J Jacobi_gpu1
+#BSUB -o jacobi_gpu1_%J
+#BSUB -q hpcintrogpu
+#BSUB -n 1
+#BSUB -gpu "num=1:mode=exclusive_process:mps=yes"
+#BSUB -R "rusage[mem=7GB]"
+#BSUB -W 00:59
+
+
+module load gcc/8.3.0
+module load cuda/10.2
+
+# define the driver name to use
+# valid values: matmult_c.studio, matmult_f.studio, matmult_c.gcc or
+# matmult_f.gcc
+#
+EXECUTABLE=jacobi_gpu2
+
+# define the mkn values in the MKN variable
+#
+Size="25 30 40 50 60 75 100"
+
+# define the permutation type in PERM
+#
+max_iter=1000
+
+# uncomment and set a reasonable BLKSIZE for the blk version
+#
+
+T_time=15
+
+# define the max no. of iterations the driver should use - adjust to
+# get a reasonable run time.  You can get an estimate by trying this
+# on the command line, i.e. "MFLOPS_MAX_IT=10 ./matmult_...." for the
+# problem size you want to analyze.
+#
+export MFLOPS_MAX_IT=50000
+
+# experiment name 
+#
+JID=${LSB_JOBID}
+EXPOUT="$LSB_JOBNAME.${JID}.er"
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   4.44 sec.
+    Max Memory :                                 10 MB
+    Average Memory :                             10.00 MB
+    Total Requested Memory :                     7168.00 MB
+    Delta Memory :                               7158.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   28 sec.
+    Turnaround time :                            7 sec.
+
+The output (if any) is above this job summary.
+

@@ -26,7 +26,7 @@ EXECUTABLE=jacobi_gpu1
 
 # define the mkn values in the MKN variable
 #
-Size="20 30 40"
+Size="25 30 40 50 60 75 100"
 
 # define the permutation type in PERM
 #

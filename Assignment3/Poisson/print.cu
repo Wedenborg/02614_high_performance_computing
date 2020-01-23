@@ -30,8 +30,7 @@ print_binary(char *fname, int num, double ***u) {
     fclose(f_ptr);
 }
 
-void
-print_vtk(const char *fname, int n, double ***u) {
+void print_vtk(const char *fname, int n, double ***u) {
 
     FILE *f_ptr;
     size_t written;
