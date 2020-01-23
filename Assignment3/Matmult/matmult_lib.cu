@@ -33,12 +33,11 @@ __global__ void matcal_2(int m,int n,int k, double *A,double *B, double *C){
 
     if ( i<m && j<n ){
 
-        C[i*n + j] =0;
-        
+        double c1 = 0;
         for (int h= 0;h<k;h++){
-            C[i*n + j] +=  A[i*k + h]*B[h*n + j];
+            c1 +=  A[i*k + h]*B[h*n + j];
         } 
-
+        C[i*n + j] = c1;
     }
 };
 
