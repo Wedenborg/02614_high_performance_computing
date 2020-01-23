@@ -22,7 +22,7 @@ module load cuda/10.2
 # valid values: matmult_c.studio, matmult_f.studio, matmult_c.gcc or
 # matmult_f.gcc
 #
-EXECUTABLE=jacobi_gpu1
+EXECUTABLE=jacobi_gpu2
 
 # define the mkn values in the MKN variable
 #

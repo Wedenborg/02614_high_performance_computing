@@ -1,7 +1,7 @@
 TARGET	= jacobi_gpu1
 
-LIBSRCS	= main.cu alloc3d_gpu.cu transfer3d_gpu.cu
-LIBOBJS	= jacobi_gpu1.o alloc3d_gpu.o transfer3d_gpu.o
+LIBSRCS	= main.cu alloc3d_gpu.cu transfer3d_gpu.cu  alloc3d.cu
+LIBOBJS	= main.o jacobi_gpu1.o alloc3d_gpu.o transfer3d_gpu.o alloc3d.o
 # MAIN_gpu1 = main_gpu1
 
 # OBSJ_gpu1 = $(MAIN_gpu1) 

@@ -20,7 +20,7 @@ __global__ void d_malloc_3d_gpu_kernel2(double *** array3D, int nx, int ny, int 
     }
 }
 
-extern "C" {
+//extern "C" {
 
     double ***
     d_malloc_3d_gpu(int nx, int ny, int nz) {
@@ -51,4 +51,4 @@ extern "C" {
         checkCudaErrors( cudaFree(array3D) );
     }
 
-}
+//}

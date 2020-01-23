@@ -1,7 +1,7 @@
 #include <cuda_runtime_api.h>
 #include <helper_cuda.h>
 
-extern "C" {
+//extern "C" {
 
     void
     transfer_3d(double ***dst, double ***src, int nx, int ny, int nz, int flag)
@@ -42,4 +42,4 @@ extern "C" {
                                     (cudaMemcpyKind) flag) );
     }
 
-}
+//}

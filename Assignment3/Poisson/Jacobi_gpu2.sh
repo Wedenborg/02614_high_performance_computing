@@ -22,11 +22,11 @@ module load cuda/10.2
 # valid values: matmult_c.studio, matmult_f.studio, matmult_c.gcc or
 # matmult_f.gcc
 #
-EXECUTABLE=jacobi_gpu1
+EXECUTABLE=jacobi_gpu2
 
 # define the mkn values in the MKN variable
 #
-Size="25 30 40 50 60 75 100"
+Size="100 200 300 400 500 600 700 800 900 1000"
 
 # define the permutation type in PERM
 #

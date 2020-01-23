@@ -10,10 +10,8 @@
 #BSUB -o jacobi_gpu1_%J
 #BSUB -q hpcintrogpu
 #BSUB -n 1
-#BSUB -gpu "num=1:mode=exclusive_process:mps=yes"
-#BSUB -R "rusage[mem=7GB]"
+#BSUB -R "rusage[mem=5000]"
 #BSUB -W 00:59
-
 
 module load gcc/8.3.0
 module load cuda/10.2
@@ -26,7 +24,7 @@ EXECUTABLE=jacobi_gpu1
 
 # define the mkn values in the MKN variable
 #
-Size="25 30 40 50 60 75 100"
+Size="20 30 40 50 75 100"
 
 # define the permutation type in PERM
 #
