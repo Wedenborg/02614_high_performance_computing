@@ -1,48 +1,54 @@
 #include <cuda_runtime_api.h>
 #include <helper_cuda.h>
 
-__global__ void d_malloc_3d_gpu_kernel1(double *** array3D, int m, int n, int k)
+__global__ void d_malloc_3d_gpu_kernel1(double *** array3D, int nx, int ny, int nz)
 {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
-    if (i < m) {
-        array3D[i] = (double **) array3D + m + i * n;
+    if (i < nz) {
+        array3D[i] = (double **) array3D + nz + i * ny;
+        //printf("k1: %i | %i\n", i, i* ny);
     }
 }
 
-__global__ void d_malloc_3d_gpu_kernel2(double *** array3D, int m, int n, int k)
+__global__ void d_malloc_3d_gpu_kernel2(double *** array3D, int nx, int ny, int nz)
 {
-    int i = blockIdx.y * blockDim.y + threadIdx.y;
-    int j = blockIdx.x * blockDim.x + threadIdx.x;
-    if (i < m && j < n) {
-        array3D[i][j] = (double *) array3D + m + m * n + (i * n * k) + (j * k);
+    int i = blockIdx.x * blockDim.x + threadIdx.x;
+    int j = blockIdx.y * blockDim.y + threadIdx.y;
+    if (i < nz && j < ny) {
+        array3D[i][j] = (double *) array3D + nz + nz * ny + (i * nx * ny) + (j * nx);
+        //printf("k2: %i %i | %i\n", i, j, (i * nx * ny) + (j * nx));
     }
 }
 
-double ***
-d_malloc_3d_gpu(int m, int n, int k) {
+extern "C" {
 
-    if (m <= 0 || n <= 0 || k <= 0)
-        return NULL;
+    double ***
+    d_malloc_3d_gpu(int nx, int ny, int nz) {
+
+        if (nx <= 0 || ny <= 0 || nz <= 0)
+            return NULL;
     
-    double ***array3D; 
-    checkCudaErrors( cudaMalloc((void**)&array3D, 
-                                m * sizeof(double **) +
-                                m * n * sizeof(double *) +
-                                m * n * k * sizeof(double)) );
-    if (array3D == NULL) {
-        return NULL;
+        double ***array3D; 
+        checkCudaErrors( cudaMalloc((void**)&array3D, 
+                                    nz * sizeof(double **) +
+                                    nz * ny * sizeof(double *) +
+                                    nz * ny * nx * sizeof(double)) );
+        if (array3D == NULL) {
+            return NULL;
+        }
+
+        dim3 block(16, 16);
+        dim3 grid((nz + 15) / 16, (ny + 15) /16);
+        d_malloc_3d_gpu_kernel1<<<grid.x, block.x>>>(array3D, nx, ny, nz);
+        d_malloc_3d_gpu_kernel2<<<grid, block>>>(array3D, nx, ny, nz);
+        checkCudaErrors( cudaDeviceSynchronize() );
+
+        return array3D;
     }
 
-    dim3 block(16, 16);
-    dim3 grid((m + 15) / 16, (n + 15) /16);
-    d_malloc_3d_gpu_kernel1<<<grid.x, block.x>>>(array3D, m, n, k);
-    d_malloc_3d_gpu_kernel2<<<grid, block>>>(array3D, m, n, k);
-    checkCudaErrors( cudaDeviceSynchronize() );
+    void
+    free_gpu(double ***array3D) {
+        checkCudaErrors( cudaFree(array3D) );
+    }
 
-    return array3D;
-}
-
-void
-free_gpu(double ***array3D) {
-    checkCudaErrors( cudaFree(array3D) );
 }
