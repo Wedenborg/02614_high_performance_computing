@@ -140,8 +140,8 @@ __global__ void matcal_3(int m,int n,int k, double *A,double *B, double *C){
 __global__ void matcal_4(int m,int n,int k, double *A,double *B, double *C){
 
     // 2D thread indices defining row and col of element
-    int i = (blockIdx.x * blockDim.x + threadIdx.x);
-    int j = size*(blockIdx.y * blockDim.y + threadIdx.y);
+    int j = (blockIdx.x * blockDim.x + threadIdx.x);
+    int i = size*(blockIdx.y * blockDim.y + threadIdx.y);
 
     double c1 = 0;
     double c2 = 0;
@@ -153,14 +153,14 @@ __global__ void matcal_4(int m,int n,int k, double *A,double *B, double *C){
     double c8 = 0;
 
         if (size ==2){
-            if ( i<m && j<n  && (j+1)<m ){
+            if ( i<m && j<n  && (i+1)<m ){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
+    
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
+                C[(i+1)*n + j]=c2;
             }
             else if( i<m && j<n){
                 for (int h= 0;h<k;h++){
@@ -170,37 +170,37 @@ __global__ void matcal_4(int m,int n,int k, double *A,double *B, double *C){
             }
         }
         else if(size ==4){
-            if ( i<m && j<n  && (j+1)<m && (j+2)<m && (j+3)<m ){
+            if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m ){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
-                    c3 +=  A[(i)*k + h]*B[h*n + (j+2)];
-                    c4 +=  A[(i)*k + h]*B[h*n + (j+3)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
+                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
+                    c4 +=  A[(i+3)*k + h]*B[h*n + j];
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
-                C[(i)*n + j+2]=c3;
-                C[(i)*n + j+3]=c4;
+                C[(i+1)*n + j]=c2;
+                C[(i+2)*n + j]=c3;
+                C[(i+3)*n + j]=c4;
             }
-            else if( i<m && j<n  && (j+1)<m && (j+2)<m){
+            else if( i<m && j<n  && (i+1)<m && (i+2)<m){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
-                    c3 +=  A[(i)*k + h]*B[h*n + (j+2)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
+                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
 
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
-                C[(i)*n + j+2]=c3;
+                C[(i+1)*n + j]=c2;
+                C[(i+2)*n + j]=c3;
             } 
             else if( i<m && j<n  && (j+1)<m){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
 
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
+                C[(i+1)*n + j]=c2;
             } 
             else if( i<m && j<n){
                 for (int h= 0;h<k;h++){
@@ -209,106 +209,106 @@ __global__ void matcal_4(int m,int n,int k, double *A,double *B, double *C){
                 C[i*n + j] =c1;
             }
         }
-        else if(size ==8){
-            if (i<m && j<n  && (j+1)<m && (j+2)<m && (j+3)<m && (j+4) && (j+5) && (j+6) && (j+7)){
+        else if(size == 8){
+            if (i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)<m && (i+5)<m && (i+6)<m && (i+7)<m){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
-                    c3 +=  A[(i)*k + h]*B[h*n + (j+2)];
-                    c4 +=  A[(i)*k + h]*B[h*n + (j+3)];
-                    c5 +=  A[(i)*k + h]*B[h*n + (j+4)];
-                    c6 +=  A[(i)*k + h]*B[h*n + (j+5)];
-                    c7 +=  A[(i)*k + h]*B[h*n + (j+6)];
-                    c8 +=  A[(i)*k + h]*B[h*n + (j+7)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
+                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
+                    c4 +=  A[(i+3)*k + h]*B[h*n + j];
+                    c5 +=  A[(i+4)*k + h]*B[h*n + j];
+                    c6 +=  A[(i+5)*k + h]*B[h*n + j];
+                    c7 +=  A[(i+6)*k + h]*B[h*n + j];
+                    c8 +=  A[(i+7)*k + h]*B[h*n + j];
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
-                C[(i)*n + j+2]=c3;
-                C[(i)*n + j+3]=c4;
-                C[(i)*n + j+4]=c5;
-                C[(i)*n + j+5]=c6;
-                C[(i)*n + j+6]=c7;
-                C[(i)*n + j+7]=c8;
+                C[(i+1)*n + j]=c2;
+                C[(i+2)*n + j]=c3;
+                C[(i+3)*n + j]=c4;
+                C[(i+4)*n + j]=c5;
+                C[(i+5)*n + j]=c6;
+                C[(i+6)*n + j]=c7;
+                C[(i+7)*n + j]=c8;
             }
-            else if ( i<m && j<n  && (j+1)<m && (j+2)<m && (j+3)<m && (j+4) && (j+5) && (j+6) ){
+            else if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)<m && (i+5)<m && (i+6)<m ){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
-                    c3 +=  A[(i)*k + h]*B[h*n + (j+2)];
-                    c4 +=  A[(i)*k + h]*B[h*n + (j+3)];
-                    c5 +=  A[(i)*k + h]*B[h*n + (j+4)];
-                    c6 +=  A[(i)*k + h]*B[h*n + (j+5)];
-                    c7 +=  A[(i)*k + h]*B[h*n + (j+6)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
+                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
+                    c4 +=  A[(i+3)*k + h]*B[h*n + j];
+                    c5 +=  A[(i+4)*k + h]*B[h*n + j];
+                    c6 +=  A[(i+5)*k + h]*B[h*n + j];
+                    c7 +=  A[(i+6)*k + h]*B[h*n + j];
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
-                C[(i)*n + j+2]=c3;
-                C[(i)*n + j+3]=c4;
-                C[(i)*n + j+4]=c5;
-                C[(i)*n + j+5]=c6;
-                C[(i)*n + j+6]=c7;
+                C[(i+1)*n + j]=c2;
+                C[(i+2)*n + j]=c3;
+                C[(i+3)*n + j]=c4;
+                C[(i+4)*n + j]=c5;
+                C[(i+5)*n + j]=c6;
+                C[(i+6)*n + j]=c7;
             }
-            else if ( i<m && j<n  && (j+1)<m && (j+2)<m && (j+3)<m && (j+4) && (j+5)){
+            else if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)<m && (i+5)<m){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
-                    c3 +=  A[(i)*k + h]*B[h*n + (j+2)];
-                    c4 +=  A[(i)*k + h]*B[h*n + (j+3)];
-                    c5 +=  A[(i)*k + h]*B[h*n + (j+4)];
-                    c6 +=  A[(i)*k + h]*B[h*n + (j+5)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
+                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
+                    c4 +=  A[(i+3)*k + h]*B[h*n + j];
+                    c5 +=  A[(i+4)*k + h]*B[h*n + j];
+                    c6 +=  A[(i+5)*k + h]*B[h*n + j];
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
-                C[(i)*n + j+2]=c3;
-                C[(i)*n + j+3]=c4;
-                C[(i)*n + j+4]=c5;
-                C[(i)*n + j+5]=c6;
+                C[(i+1)*n + j]=c2;
+                C[(i+2)*n + j]=c3;
+                C[(i+3)*n + j]=c4;
+                C[(i+4)*n + j]=c5;
+                C[(i+5)*n + j]=c6;
             }
-            else if ( i<m && j<n  && (j+1)<m && (j+2)<m && (j+3)<m && (j+4)){
+            else if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)<m){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
-                    c3 +=  A[(i)*k + h]*B[h*n + (j+2)];
-                    c4 +=  A[(i)*k + h]*B[h*n + (j+3)];
-                    c5 +=  A[(i)*k + h]*B[h*n + (j+4)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
+                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
+                    c4 +=  A[(i+3)*k + h]*B[h*n + j];
+                    c5 +=  A[(i+4)*k + h]*B[h*n + j];
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
-                C[(i)*n + j+2]=c3;
-                C[(i)*n + j+3]=c4;
-                C[(i)*n + j+4]=c5;
+                C[(i+1)*n + j]=c2;
+                C[(i+2)*n + j]=c3;
+                C[(i+3)*n + j]=c4;
+                C[(i+4)*n + j]=c5;
             }
-            else if ( i<m && j<n  && (j+1)<m && (j+2)<m && (j+3)<m ){
+            else if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m ){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
-                    c3 +=  A[(i)*k + h]*B[h*n + (j+2)];
-                    c4 +=  A[(i)*k + h]*B[h*n + (j+3)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
+                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
+                    c4 +=  A[(i+3)*k + h]*B[h*n + j];
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
-                C[(i)*n + j+2]=c3;
-                C[(i)*n + j+3]=c4;
+                C[(i+1)*n + j]=c2;
+                C[(i+2)*n + j]=c3;
+                C[(i+3)*n + j]=c4;
             }
-            else if( i<m && j<n  && (j+1)<m && (j+2)<m){
+            else if( i<m && j<n  && (i+1)<m && (i+2)<m){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
-                    c3 +=  A[(i)*k + h]*B[h*n + (j+2)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
+                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
 
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
-                C[(i)*n + j+2]=c3;
+                C[(i+1)*n + j]=c2;
+                C[(i+2)*n + j]=c3;
             } 
-            else if( i<m && j<n  && (j+1)<m){
+            else if( i<m && j<n  && (i+1)<m){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
+                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
 
                 } 
                 C[i*n + j] =c1;
-                C[(i)*n + j+1]=c2;
+                C[(i+1)*n + j]=c2;
             } 
             else if( i<m && j<n){
                 for (int h= 0;h<k;h++){
