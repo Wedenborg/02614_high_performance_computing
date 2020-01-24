@@ -29,7 +29,7 @@ SIZES="500 1000 2000 4000 8000"
 
 # define the permutation type in PERM
 #
-PERM="gpu5"
+PERM="gpu2"
 
 # uncomment and set a reasonable BLKSIZE for the blk version
 #

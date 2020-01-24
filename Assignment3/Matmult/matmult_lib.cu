@@ -67,8 +67,8 @@ __global__ void matcal_1(int m,int n,int k, double *A,double *B, double *C){
 __global__ void matcal_2(int m,int n,int k, double *A,double *B, double *C){
 
     // 2D thread indices defining row and col of element
-    int i = blockIdx.x * blockDim.x + threadIdx.x; // Row index in C
-    int j = blockIdx.y * blockDim.y + threadIdx.y; // Col index in C
+    int j = blockIdx.x * blockDim.x + threadIdx.x; // Col index in C
+    int i = blockIdx.y * blockDim.y + threadIdx.y; // Row index in C
 
     if ( i<m && j<n ){
 
@@ -122,7 +122,6 @@ __global__ void matcal_3(int m,int n,int k, double *A,double *B, double *C){
         if ( i<m && j<n  && (j+1)<m ){
             for (int h= 0;h<k;h++){
                 c1 +=  A[i*k + h]*B[h*n + j];
-
                 c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
             } 
             C[i*n + j] =c1;
@@ -490,7 +489,7 @@ void matmult_gpu2(int m, int n, int k, double *h_A,double *h_B,double *h_C){
     cudaMemcpy(d_B, h_B,  n*k * sizeof(double), cudaMemcpyHostToDevice);
 
     dim3 dimBlock(32,32,1); // threads per block
-    dim3 dimGrid(m/32 + 1,n/32 + 1,1);// blocks in total
+    dim3 dimGrid(n/32 + 1,m/32 + 1,1);// blocks in total
 
     matcal_2<<<dimGrid, dimBlock>>>(m,n,k,d_A,d_B,d_C);
     cudaDeviceSynchronize();

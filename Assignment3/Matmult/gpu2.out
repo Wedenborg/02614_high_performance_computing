@@ -1,58 +1,58 @@
 Loaded module: cuda/10.2
 Loaded dependency [gcc/6.3.0]: binutils/2.29
 Loaded module: gcc/6.3.0
-==236217== NVPROF is profiling process 236217, command: ./matmult_f.nvcc gpu2 500 500 500
-==236217== Profiling application: ./matmult_f.nvcc gpu2 500 500 500
-  5859.375 117515.187 # matmult_gpu2
-==236217== Profiling result:
+==27479== NVPROF is profiling process 27479, command: ./matmult_f.nvcc gpu2 500 500 500
+==27479== Profiling application: ./matmult_f.nvcc gpu2 500 500 500
+  5859.375 182406.264 # matmult_gpu2
+==27479== Profiling result:
             Type  Time(%)      Time     Calls       Avg       Min       Max  Name
- GPU activities:   67.12%  1.38823s      1411  983.87us  974.74us  1.0993ms  matcal_2
-                   22.47%  464.77ms      2823  164.64us  1.5360us  165.31us  [CUDA memcpy HtoD]
-                   10.41%  215.34ms      1411  152.62us  152.41us  159.23us  [CUDA memcpy DtoH]
-==236236== NVPROF is profiling process 236236, command: ./matmult_f.nvcc gpu2 1000 1000 1000
-==236236== Profiling application: ./matmult_f.nvcc gpu2 1000 1000 1000
-==236236== Profiling result:
+ GPU activities:   47.20%  722.08ms      4379  164.90us  1.5990us  173.12us  [CUDA memcpy HtoD]
+                   31.06%  475.06ms      2189  217.02us  197.95us  242.56us  matcal_2
+                   21.74%  332.57ms      2189  151.93us  151.81us  164.35us  [CUDA memcpy DtoH]
+==27496== NVPROF is profiling process 27496, command: ./matmult_f.nvcc gpu2 1000 1000 1000
+==27496== Profiling application: ./matmult_f.nvcc gpu2 1000 1000 1000
+==27496== Profiling result:
             Type  Time(%)      Time     Calls       Avg       Min       Max  Name
- GPU activities:   81.01%  2.19158s       269  8.1471ms  8.0910ms  8.1887ms  matcal_2
-                   12.94%  350.01ms       539  649.37us  1.4080us  651.23us  [CUDA memcpy HtoD]
-                    6.05%  163.77ms       269  608.80us  608.54us  613.44us  [CUDA memcpy DtoH]
- 23437.500 178774.777 # matmult_gpu2
-==236253== NVPROF is profiling process 236253, command: ./matmult_f.nvcc gpu2 2000 2000 2000
-==236253== Profiling application: ./matmult_f.nvcc gpu2 2000 2000 2000
-==236253== Profiling result:
+ GPU activities:   43.37%  963.26ms       658  1.4639ms  1.4589ms  1.4682ms  matcal_2
+                   38.59%  857.06ms      1317  650.77us  1.6000us  662.46us  [CUDA memcpy HtoD]
+                   18.04%  400.60ms       658  608.82us  608.60us  619.10us  [CUDA memcpy DtoH]
+ 23437.500 438537.585 # matmult_gpu2
+==27514== NVPROF is profiling process 27514, command: ./matmult_f.nvcc gpu2 2000 2000 2000
+==27514== Profiling application: ./matmult_f.nvcc gpu2 2000 2000 2000
+==27514== Profiling result:
             Type  Time(%)      Time     Calls       Avg       Min       Max  Name
- GPU activities:   91.13%  2.66064s        34  78.254ms  78.238ms  78.279ms  matcal_2
-                    6.04%  176.41ms        69  2.5566ms  1.4080us  2.5948ms  [CUDA memcpy HtoD]
-                    2.83%  82.640ms        34  2.4306ms  2.4303ms  2.4313ms  [CUDA memcpy DtoH]
- 93750.000 179897.566 # matmult_gpu2
-==236271== NVPROF is profiling process 236271, command: ./matmult_f.nvcc gpu2 4000 4000 4000
-==236271== Profiling application: ./matmult_f.nvcc gpu2 4000 4000 4000
-==236271== Profiling result:
+ GPU activities:   57.21%  1.46709s       144  10.188ms  10.154ms  10.229ms  matcal_2
+                   29.16%  747.89ms       289  2.5879ms  1.4720us  2.6082ms  [CUDA memcpy HtoD]
+                   13.63%  349.61ms       144  2.4279ms  2.4273ms  2.4399ms  [CUDA memcpy DtoH]
+ 93750.000 765212.322 # matmult_gpu2
+==27531== NVPROF is profiling process 27531, command: ./matmult_f.nvcc gpu2 4000 4000 4000
+==27531== Profiling application: ./matmult_f.nvcc gpu2 4000 4000 4000
+==27531== Profiling result:
             Type  Time(%)      Time     Calls       Avg       Min       Max  Name
- GPU activities:   94.64%  3.15204s         5  630.41ms  629.73ms  631.60ms  matcal_2
-                    3.90%  129.82ms        11  11.802ms  1.3760us  16.904ms  [CUDA memcpy HtoD]
-                    1.46%  48.606ms         5  9.7211ms  9.7188ms  9.7295ms  [CUDA memcpy DtoH]
-375000.000 190835.593 # matmult_gpu2
-==236290== NVPROF is profiling process 236290, command: ./matmult_f.nvcc gpu2 8000 8000 8000
-==236290== Profiling application: ./matmult_f.nvcc gpu2 8000 8000 8000
-==236290== Profiling result:
+ GPU activities:   68.56%  2.00078s        25  80.031ms  79.875ms  80.342ms  matcal_2
+                   23.12%  674.77ms        51  13.231ms  1.4400us  16.924ms  [CUDA memcpy HtoD]
+                    8.32%  242.72ms        25  9.7090ms  9.7088ms  9.7092ms  [CUDA memcpy DtoH]
+375000.000 1052740.628 # matmult_gpu2
+==27548== NVPROF is profiling process 27548, command: ./matmult_f.nvcc gpu2 8000 8000 8000
+==27548== Profiling application: ./matmult_f.nvcc gpu2 8000 8000 8000
+==27548== Profiling result:
             Type  Time(%)      Time     Calls       Avg       Min       Max  Name
- GPU activities:   98.08%  6.21926s         1  6.21926s  6.21926s  6.21926s  matcal_2
-                    1.31%  82.930ms         3  27.643ms  1.3760us  41.465ms  [CUDA memcpy HtoD]
-                    0.61%  38.870ms         1  38.870ms  38.870ms  38.870ms  [CUDA memcpy DtoH]
-1500000.000 161346.053 # matmult_gpu2
+ GPU activities:   81.09%  2.56472s         4  641.18ms  641.01ms  641.36ms  matcal_2
+                   14.00%  442.70ms         9  49.189ms  1.4720us  78.739ms  [CUDA memcpy HtoD]
+                    4.91%  155.33ms         4  38.834ms  38.827ms  38.854ms  [CUDA memcpy DtoH]
+1500000.000 1283233.327 # matmult_gpu2
 
 ------------------------------------------------------------
-Sender: LSF System <lsfadmin@n-62-20-14>
-Subject: Job 5171708: <mm_batch> in cluster <dcc> Done
+Sender: LSF System <lsfadmin@n-62-20-4>
+Subject: Job 5183453: <mm_batch> in cluster <dcc> Done
 
-Job <mm_batch> was submitted from host <n-62-20-6> by user <s164548> in cluster <dcc> at Thu Jan 23 17:22:34 2020
-Job was executed on host(s) <n-62-20-14>, in queue <hpcintrogpu>, as user <s164548> in cluster <dcc> at Thu Jan 23 17:22:35 2020
+Job <mm_batch> was submitted from host <n-62-20-6> by user <s164548> in cluster <dcc> at Fri Jan 24 15:53:33 2020
+Job was executed on host(s) <n-62-20-4>, in queue <hpcintrogpu>, as user <s164548> in cluster <dcc> at Fri Jan 24 15:53:35 2020
 </zhome/1c/9/118567> was used as the home directory.
 </zhome/1c/9/118567/Matmult> was used as the working directory.
-Started at Thu Jan 23 17:22:35 2020
-Terminated at Thu Jan 23 17:23:02 2020
-Results reported at Thu Jan 23 17:23:02 2020
+Started at Fri Jan 24 15:53:35 2020
+Terminated at Fri Jan 24 15:53:58 2020
+Results reported at Fri Jan 24 15:53:58 2020
 
 Your job looked like:
 
@@ -111,16 +111,16 @@ Successfully completed.
 
 Resource usage summary:
 
-    CPU time :                                   25.00 sec.
-    Max Memory :                                 415 MB
-    Average Memory :                             415.00 MB
+    CPU time :                                   21.09 sec.
+    Max Memory :                                 414 MB
+    Average Memory :                             414.00 MB
     Total Requested Memory :                     7168.00 MB
-    Delta Memory :                               6753.00 MB
+    Delta Memory :                               6754.00 MB
     Max Swap :                                   -
     Max Processes :                              5
     Max Threads :                                15
-    Run time :                                   35 sec.
-    Turnaround time :                            28 sec.
+    Run time :                                   32 sec.
+    Turnaround time :                            25 sec.
 
 The output (if any) is above this job summary.
 
