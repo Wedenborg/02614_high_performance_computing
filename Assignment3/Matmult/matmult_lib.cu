@@ -81,51 +81,23 @@ __global__ void matcal_2(int m,int n,int k, double *A,double *B, double *C){
 };
 
 // below version
-    // __global__ void matcal_3(int m,int n,int k, double *A,double *B, double *C){
-
-    //     // 2D thread indices defining row and col of element
-    //     int i = 2*(blockIdx.x * blockDim.x + threadIdx.x);
-    //     int j = blockIdx.y * blockDim.y + threadIdx.y;
-
-    //     double c1 = 0;
-    //     double c2 = 0;
-
-    //         if ( i<m && j<n  && (i+1)<m ){
-    //             for (int h= 0;h<k;h++){
-    //                 c1 +=  A[i*k + h]*B[h*n + j];
-
-    //                 c2 +=  A[(i+1)*k + h]*B[h*n + j];
-    //             } 
-    //             C[i*n + j] =c1;
-    //             C[(i+1)*n + j]=c2;
-    //         }
-    //         else if( i<m && j<n){
-    //             for (int h= 0;h<k;h++){
-    //                 c1+=  A[i*k + h]*B[h*n + j];
-    //             }
-    //             C[i*n + j] =c1;
-    //         }
-
-    
-// };
-
-// right version 
 __global__ void matcal_3(int m,int n,int k, double *A,double *B, double *C){
 
     // 2D thread indices defining row and col of element
-    int i = (blockIdx.x * blockDim.x + threadIdx.x);
-    int j = 2*(blockIdx.y * blockDim.y + threadIdx.y);
+    int j = (blockIdx.x * blockDim.x + threadIdx.x);
+    int i = 2*(blockIdx.y * blockDim.y + threadIdx.y);
 
     double c1 = 0;
     double c2 = 0;
 
-        if ( i<m && j<n  && (j+1)<m ){
+        if ( i<m && j<n  && (i+1)<m ){
             for (int h= 0;h<k;h++){
                 c1 +=  A[i*k + h]*B[h*n + j];
-                c2 +=  A[(i)*k + h]*B[h*n + (j+1)];
+
+                c2 +=  A[(i+1)*k + h]*B[h*n + j];
             } 
             C[i*n + j] =c1;
-            C[(i)*n + j+1]=c2;
+            C[(i+1)*n + j]=c2;
         }
         else if( i<m && j<n){
             for (int h= 0;h<k;h++){
@@ -135,7 +107,35 @@ __global__ void matcal_3(int m,int n,int k, double *A,double *B, double *C){
         }
 
     
-};
+// };
+
+// right version 
+// __global__ void matcal_3(int m,int n,int k, double *A,double *B, double *C){
+
+//     // 2D thread indices defining row and col of element
+//     int j = 2*(blockIdx.x * blockDim.x + threadIdx.x);
+//     int i = (blockIdx.y * blockDim.y + threadIdx.y);
+
+//     double c1 = 0;
+//     double c2 = 0;
+
+//         if ( i<m && j<n  && (j+1)<n ){
+//             for (int h= 0;h<k;h++){
+//                 c1 +=  A[i*k + h]*B[h*n + j];
+//                 c2 +=  A[i*k + h]*B[h*n + (j+1)];
+//             } 
+//             C[i*n + j] =c1;
+//             C[i*n + j+1]=c2;
+//         }
+//         else if( i<m && j<n){
+//             for (int h= 0;h<k;h++){
+//                 c1+=  A[i*k + h]*B[h*n + j];
+//             }
+//             C[i*n + j] =c1;
+//         }
+
+    
+// };
 
 __global__ void matcal_4(int m,int n,int k, double *A,double *B, double *C){
 
@@ -546,7 +546,7 @@ void matmult_gpu3(int m, int n, int k, double *h_A,double *h_B,double *h_C){
     cudaMemcpy(d_B, h_B,  n*k * sizeof(double), cudaMemcpyHostToDevice);
 
     dim3 dimBlock(32,32,1); // threads per block
-    dim3 dimGrid((m/(32)+ 1),n/(32*2) + 1,1);// blocks in total
+    dim3 dimGrid((n/(32*2)+ 1),m/(32) + 1,1);// blocks in total
 
     matcal_3<<<dimGrid, dimBlock>>>(m,n,k,d_A,d_B,d_C);
     cudaDeviceSynchronize();
