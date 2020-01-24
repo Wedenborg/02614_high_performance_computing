@@ -27,6 +27,14 @@
 #include "jacobi_gpu2.h"
 #endif
 
+#ifdef _JACOBIGPU3
+#include "jacobi_gpu3.h"
+#endif
+
+#ifdef _JACOBIGPU4
+#include "jacobi_gpu4.h"
+#endif
+
 //#define N 2880
 #define N_DEFAULT 1000
 
@@ -43,6 +51,15 @@ int main(int argc, char *argv[]) {
 
     #ifdef _JACOBIGPU2
     char    *output_prefix ="Jacobi_gpu2.res";
+    #endif
+
+    #ifdef _JACOBIGPU3
+    char    *output_prefix ="Jacobi_gpu3.res";
+    #endif
+
+    
+    #ifdef _JACOBIGPU4
+    char    *output_prefix ="Jacobi_gpu4.res";
     #endif
 
     char    *output_ext = "";
@@ -178,16 +195,136 @@ int main(int argc, char *argv[]) {
     //printf("%lf \n",te);
 
     #endif 
+
+
     
+    #ifdef _JACOBIGPU3
+    double ***d0_u,***d1_u, ***d0_v,***d1_v,***d0_f,***d1_f;
+    
+
+    //cudaMalloc((void*) &d0_A, (N*N*N)/2);
+    //cudaMalloc((void*) &d1_A, (N*N*N)/2);
+    if ( (d0_u = d_malloc_3d_gpu(N, N, N/2)) == NULL ) {
+        perror("array d_u: allocation failed");
+        exit(-1);
+    }
+    if ( (d1_u = d_malloc_3d_gpu(N, N, N/2)) == NULL ) {
+        perror("array d_u: allocation failed");
+        exit(-1);
+    }
+    transfer_3d_from_1d(d0_u, h_u[0][0], N, N, N/2, cudaMemcpyHostToDevice);
+    transfer_3d_from_1d(d1_u, h_u[0][0] + N*N*N/2, N, N, N/2 , cudaMemcpyHostToDevice);
+
+    if ( (d0_v = d_malloc_3d_gpu(N, N, N/2)) == NULL ) {
+        perror("array d_u: allocation failed");
+        exit(-1);
+    }
+    if ( (d1_v = d_malloc_3d_gpu(N, N, N/2)) == NULL ) {
+        perror("array d_u: allocation failed");
+        exit(-1);
+    }
+    transfer_3d_from_1d(d0_v, h_u[0][0], N, N, N/2, cudaMemcpyHostToDevice);
+    transfer_3d_from_1d(d1_v, h_u[0][0]+N*N*N/2, N, N, N/2 , cudaMemcpyHostToDevice);
+
+    if ( (d0_f = d_malloc_3d_gpu(N, N, N/2)) == NULL ) {
+        perror("array d_u: allocation failed");
+        exit(-1);
+    }
+    if ( (d1_f = d_malloc_3d_gpu(N, N, N/2)) == NULL ) {
+        perror("array d_u: allocation failed");
+        exit(-1);
+    }
+    transfer_3d_from_1d(d0_f, h_u[0][0], N, N, N/2, cudaMemcpyHostToDevice);
+    transfer_3d_from_1d(d1_f, h_u[0][0] + N*N*N/2, N, N, N/2 , cudaMemcpyHostToDevice);
+
+    ts = omp_get_wtime();
+
+
+    #define K 10
+    
+    dim3 dimGrid(ceil((double)N/(K*2)),ceil((double)N/(K*2)),ceil((double)N/(K*2)));
+    dim3 dimBlock(K,K,K);
+    ts = omp_get_wtime();
+    int counter = 0;
+    do{   
+        double*** tmp0 = d0_u;
+        d0_u = d0_v;
+        d0_v = tmp0;   
+
+        double*** tmp1 = d1_u;
+        d1_u = d1_v;
+        d1_v = tmp1; 
+
+        cudaSetDevice(0);
+        cudaDeviceEnablePeerAccess(1,0);
+        jacobi_dual1<<<dimGrid,dimBlock>>>(N, d0_u, d0_v, d0_f, d1_v,iter_max);
+        
+
+        cudaSetDevice(1);
+        cudaDeviceEnablePeerAccess(0,0);
+        jacobi_dual2<<<dimGrid,dimBlock>>>(N, d1_u, d1_v, d1_f, d0_v, iter_max);
+        checkCudaErrors(cudaDeviceSynchronize());
+
+        cudaSetDevice(0);
+        checkCudaErrors(cudaDeviceSynchronize());
+        
+        
+        counter++;
+        printf("%d \n",counter);
+    } while (counter <iter_max);
+
+    transfer_3d_to_1d(h_u[0][0],d0_u, N, N, N/2, cudaMemcpyDeviceToHost);
+    transfer_3d_to_1d(h_u[0][0]+ N*N*N/2,d1_u, N, N, N/2 , cudaMemcpyDeviceToHost);
+    transfer_3d_to_1d(h_v[0][0],d0_v, N, N, N/2, cudaMemcpyDeviceToHost);
+    transfer_3d_to_1d(h_v[0][0]+ N*N*N/2,d1_v, N, N, N/2 , cudaMemcpyDeviceToHost);
+    transfer_3d_to_1d(h_f[0][0],d0_f, N, N, N/2, cudaMemcpyDeviceToHost);
+    transfer_3d_to_1d(h_f[0][0]+ N*N*N/2,d1_f, N, N, N/2 , cudaMemcpyDeviceToHost);
+
+    te = omp_get_wtime() - ts;
+    printf("%lf \n",te);
+
+    #endif
+    
+    #ifdef _JACOBIGPU4
+    double* res_d = NULL, res_h;
+    //res = 0;
+    cudaMalloc((void**)&res_d, sizeof(double));
+    #define K 10
+    
+    dim3 dimGrid(ceil((double)N/K),ceil((double)N/K),ceil((double)N/K));
+    dim3 dimBlock(K,K,K);
+    ts = omp_get_wtime();
+    int counter = 0;
+    do{   
+        double*** tmp = d_u;
+        d_u = d_v;
+        d_v = tmp;
+
+    // printf("%d",counter);
+    cudaMemset(res_d, 0, sizeof(double));    
+    jacobi_stopTest<<<dimGrid,dimBlock>>>(N, d_u, d_v, d_f, iter_max,res_d);
+    cudaMemcpy(&res_h, res_d, sizeof(double), cudaMemcpyDeviceToHost);
+    //printf("%lf",*res);
+    
+    checkCudaErrors(cudaDeviceSynchronize());
+    counter++;
+    
+    } while (counter <iter_max || tolerance< res_h);
+
+    te = omp_get_wtime() - ts;
+    //printf("%lf \n",te);
     // Transfer result to host
     transfer_3d(h_u, d_u, N, N, N , cudaMemcpyDeviceToHost);
     transfer_3d(h_v, d_v, N, N, N , cudaMemcpyDeviceToHost);
     transfer_3d(h_f, d_f, N, N, N , cudaMemcpyDeviceToHost); 
 
+    #endif 
+    
+
     // de-allocate memory
-    cudaFree(d_u);
-    cudaFree(d_v);
-    cudaFree(d_f);
+    //cudaFree(d_u);
+    //cudaFree(d_v);
+    //cudaFree(d_f);
 
     switch(output_type){
         case 0:

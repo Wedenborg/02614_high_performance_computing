@@ -18,7 +18,7 @@ void jacobi_gpu(int N, double ***u, double ***v, double ***f, int iter_max) {
             //v[i][j][k] = u[i][j][k];
             u[i][j][k] = 1./6.*(v[i-1][j][k]+v[i+1][j][k]+v[i][j-1][k]+v[i][j+1][k]+v[i][j][k-1]+v[i][j][k+1] + 1./((N)*(N)) * f[i][j][k]);    
             
-            //printf("i=%i j=%i k=%i | u=%f v=%f f=%f\n", i, j, k, u[i][j][k], v[i][j][k], f[i][j][k]);
+            printf("i=%i j=%i k=%i | u=%f v=%f f=%f\n", i, j, k, u[i][j][k], v[i][j][k], f[i][j][k]);
         }
 }
 
