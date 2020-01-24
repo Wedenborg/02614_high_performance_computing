@@ -7,7 +7,7 @@ extern "C"{
 #endif
 #include "cblas.h"
 
-#define size 8 // gpu4
+#define size 6 // gpu4
 
 // Thread block size
 #define BLOCK_SIZE 16 // gpu5
@@ -193,7 +193,7 @@ __global__ void matcal_4(int m,int n,int k, double *A,double *B, double *C){
                 C[(i+1)*n + j]=c2;
                 C[(i+2)*n + j]=c3;
             } 
-            else if( i<m && j<n  && (j+1)<m){
+            else if( i<m && j<n  && (i+1)<m){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
                     c2 +=  A[(i+1)*k + h]*B[h*n + j];
@@ -209,46 +209,8 @@ __global__ void matcal_4(int m,int n,int k, double *A,double *B, double *C){
                 C[i*n + j] =c1;
             }
         }
-        else if(size == 8){
-            if (i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)<m && (i+5)<m && (i+6)<m && (i+7)<m){
-                for (int h= 0;h<k;h++){
-                    c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
-                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
-                    c4 +=  A[(i+3)*k + h]*B[h*n + j];
-                    c5 +=  A[(i+4)*k + h]*B[h*n + j];
-                    c6 +=  A[(i+5)*k + h]*B[h*n + j];
-                    c7 +=  A[(i+6)*k + h]*B[h*n + j];
-                    c8 +=  A[(i+7)*k + h]*B[h*n + j];
-                } 
-                C[i*n + j] =c1;
-                C[(i+1)*n + j]=c2;
-                C[(i+2)*n + j]=c3;
-                C[(i+3)*n + j]=c4;
-                C[(i+4)*n + j]=c5;
-                C[(i+5)*n + j]=c6;
-                C[(i+6)*n + j]=c7;
-                C[(i+7)*n + j]=c8;
-            }
-            else if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)<m && (i+5)<m && (i+6)<m ){
-                for (int h= 0;h<k;h++){
-                    c1 +=  A[i*k + h]*B[h*n + j];
-                    c2 +=  A[(i+1)*k + h]*B[h*n + j];
-                    c3 +=  A[(i+2)*k + h]*B[h*n + j];
-                    c4 +=  A[(i+3)*k + h]*B[h*n + j];
-                    c5 +=  A[(i+4)*k + h]*B[h*n + j];
-                    c6 +=  A[(i+5)*k + h]*B[h*n + j];
-                    c7 +=  A[(i+6)*k + h]*B[h*n + j];
-                } 
-                C[i*n + j] =c1;
-                C[(i+1)*n + j]=c2;
-                C[(i+2)*n + j]=c3;
-                C[(i+3)*n + j]=c4;
-                C[(i+4)*n + j]=c5;
-                C[(i+5)*n + j]=c6;
-                C[(i+6)*n + j]=c7;
-            }
-            else if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)<m && (i+5)<m){
+        else if(size ==6){
+            if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)<m && (i+5)<m){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
                     c2 +=  A[(i+1)*k + h]*B[h*n + j];
@@ -264,7 +226,7 @@ __global__ void matcal_4(int m,int n,int k, double *A,double *B, double *C){
                 C[(i+4)*n + j]=c5;
                 C[(i+5)*n + j]=c6;
             }
-            else if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)<m){
+            else if ( i<m && j<n  && (i+1)<m && (i+2)<m && (i+3)<m && (i+4)){
                 for (int h= 0;h<k;h++){
                     c1 +=  A[i*k + h]*B[h*n + j];
                     c2 +=  A[(i+1)*k + h]*B[h*n + j];
