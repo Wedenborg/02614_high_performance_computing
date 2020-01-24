@@ -76,5 +76,5 @@ clean:
  
 main_gpu1.o: main.cu alloc3d_gpu.h jacobi_gpu1.h transfer3d_gpu.h print.h
 main_gpu2.o: main.cu alloc3d_gpu.h jacobi_gpu2.h transfer3d_gpu.h print.h
-main_gpu3.o: main.cu alloc3d_gpu.h jacobi_gpu3.h transfer3d_gpu.h print.h jacobi_gpu3_2.h
+main_gpu3.o: main.cu alloc3d_gpu.h jacobi_gpu3.h transfer3d_gpu.h print.h
 main_gpu4.o: main.cu alloc3d_gpu.h jacobi_gpu4.h transfer3d_gpu.h print.h

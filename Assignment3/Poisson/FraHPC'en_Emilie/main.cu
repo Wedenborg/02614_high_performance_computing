@@ -200,6 +200,7 @@ int main(int argc, char *argv[]) {
     
     #ifdef _JACOBIGPU3
     double ***d0_u,***d1_u, ***d0_v,***d1_v,***d0_f,***d1_f;
+    
 
     //cudaMalloc((void*) &d0_A, (N*N*N)/2);
     //cudaMalloc((void*) &d1_A, (N*N*N)/2);
@@ -236,9 +237,6 @@ int main(int argc, char *argv[]) {
     transfer_3d_from_1d(d0_f, h_u[0][0], N, N, N/2, cudaMemcpyHostToDevice);
     transfer_3d_from_1d(d1_f, h_u[0][0] + N*N*N/2, N, N, N/2 , cudaMemcpyHostToDevice);
 
-    printf("i=%i j=%i k=%i | u=%f v=%f f=%f\n", i, j, k, h_u[10][10][10], h_v[10][10][10], f[10][10][10]);
-    }
-
     ts = omp_get_wtime();
 
 
@@ -269,9 +267,10 @@ int main(int argc, char *argv[]) {
 
         cudaSetDevice(0);
         checkCudaErrors(cudaDeviceSynchronize());
-      
-    counter++;
-    printf("%d \n",counter);
+        
+        
+        counter++;
+        printf("%d \n",counter);
     } while (counter <iter_max);
 
     transfer_3d_to_1d(h_u[0][0],d0_u, N, N, N/2, cudaMemcpyDeviceToHost);
@@ -282,12 +281,10 @@ int main(int argc, char *argv[]) {
     transfer_3d_to_1d(h_f[0][0]+ N*N*N/2,d1_f, N, N, N/2 , cudaMemcpyDeviceToHost);
 
     te = omp_get_wtime() - ts;
-    te = omp_get_wtime() - ts;
     printf("%lf \n",te);
 
     #endif
     
-
     #ifdef _JACOBIGPU4
     double* res_d = NULL, res_h;
     //res = 0;
@@ -316,18 +313,18 @@ int main(int argc, char *argv[]) {
 
     te = omp_get_wtime() - ts;
     //printf("%lf \n",te);
-
-    #endif 
-    
     // Transfer result to host
     transfer_3d(h_u, d_u, N, N, N , cudaMemcpyDeviceToHost);
     transfer_3d(h_v, d_v, N, N, N , cudaMemcpyDeviceToHost);
     transfer_3d(h_f, d_f, N, N, N , cudaMemcpyDeviceToHost); 
 
+    #endif 
+    
+
     // de-allocate memory
-    cudaFree(d_u);
-    cudaFree(d_v);
-    cudaFree(d_f);
+    //cudaFree(d_u);
+    //cudaFree(d_v);
+    //cudaFree(d_f);
 
     switch(output_type){
         case 0:
