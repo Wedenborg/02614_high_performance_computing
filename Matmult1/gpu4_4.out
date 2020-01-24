@@ -1,0 +1,126 @@
+Loaded module: cuda/10.2
+Loaded dependency [gcc/6.3.0]: binutils/2.29
+Loaded module: gcc/6.3.0
+==1693== NVPROF is profiling process 1693, command: ./matmult_f.nvcc gpu4 500 500 500
+==1693== Profiling application: ./matmult_f.nvcc gpu4 500 500 500
+  5859.375 180474.323 # matmult_gpu4
+==1693== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   51.64%  716.87ms      4333  165.44us  1.4080us  177.18us  [CUDA memcpy HtoD]
+                   24.50%  340.10ms      2166  157.02us  156.54us  157.73us  matcal_4
+                   23.86%  331.17ms      2166  152.89us  152.73us  163.07us  [CUDA memcpy DtoH]
+==1712== NVPROF is profiling process 1712, command: ./matmult_f.nvcc gpu4 1000 1000 1000
+==1712== Profiling application: ./matmult_f.nvcc gpu4 1000 1000 1000
+==1712== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   47.27%  1.03738s       604  1.7175ms  1.7072ms  1.7263ms  matcal_4
+                   36.00%  789.91ms      1209  653.36us  1.3760us  664.76us  [CUDA memcpy HtoD]
+                   16.73%  367.11ms       604  607.80us  607.48us  618.84us  [CUDA memcpy DtoH]
+ 23437.500 402486.480 # matmult_gpu4
+==1729== NVPROF is profiling process 1729, command: ./matmult_f.nvcc gpu4 2000 2000 2000
+==1729== Profiling application: ./matmult_f.nvcc gpu4 2000 2000 2000
+==1729== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   59.64%  1.54744s       137  11.295ms  11.281ms  11.310ms  matcal_4
+                   27.53%  714.41ms       275  2.5979ms  1.3760us  2.6156ms  [CUDA memcpy HtoD]
+                   12.82%  332.74ms       137  2.4287ms  2.4282ms  2.4391ms  [CUDA memcpy DtoH]
+ 93750.000 726110.303 # matmult_gpu4
+==1746== NVPROF is profiling process 1746, command: ./matmult_f.nvcc gpu4 4000 4000 4000
+==1746== Profiling application: ./matmult_f.nvcc gpu4 4000 4000 4000
+==1746== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   70.44%  2.10559s        24  87.733ms  87.281ms  88.291ms  matcal_4
+                   21.77%  650.70ms        49  13.280ms  1.3760us  16.968ms  [CUDA memcpy HtoD]
+                    7.79%  232.99ms        24  9.7080ms  9.7077ms  9.7082ms  [CUDA memcpy DtoH]
+375000.000 989801.664 # matmult_gpu4
+==1765== NVPROF is profiling process 1765, command: ./matmult_f.nvcc gpu4 8000 8000 8000
+==1765== Profiling application: ./matmult_f.nvcc gpu4 8000 8000 8000
+==1765== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   82.16%  2.76532s         4  691.33ms  691.19ms  691.40ms  matcal_4
+                   13.23%  445.25ms         9  49.472ms  1.4080us  78.961ms  [CUDA memcpy HtoD]
+                    4.61%  155.31ms         4  38.827ms  38.827ms  38.827ms  [CUDA memcpy DtoH]
+1500000.000 1207414.728 # matmult_gpu4
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-2>
+Subject: Job 5186462: <mm_batch> in cluster <dcc> Done
+
+Job <mm_batch> was submitted from host <n-62-20-6> by user <s164548> in cluster <dcc> at Fri Jan 24 17:13:27 2020
+Job was executed on host(s) <n-62-20-2>, in queue <hpcintrogpu>, as user <s164548> in cluster <dcc> at Fri Jan 24 17:13:28 2020
+</zhome/1c/9/118567> was used as the home directory.
+</zhome/1c/9/118567/Matmult> was used as the working directory.
+Started at Fri Jan 24 17:13:28 2020
+Terminated at Fri Jan 24 17:13:52 2020
+Results reported at Fri Jan 24 17:13:52 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+# 02614 - High-Performance Computing, January 2018
+# 
+# batch script to run matmult on a decidated server in the hpcintro
+# queue
+#
+# Author: Bernd Dammann <bd@cc.dtu.dk>
+#
+#BSUB -J mm_batch
+#BSUB -o mm_batch_%J.out
+#BSUB -q hpcintrogpu
+#BSUB -n 1
+#BSUB -gpu "num=1:mode=exclusive_process:mps=yes"
+#BSUB -R "rusage[mem=7GB]"
+#BSUB -W 5
+
+module load cuda/10.2
+module load gcc/6.3.0
+
+# define the driver name to use
+# valid values: matmult_c.studio, matmult_f.studio, matmult_c.gcc or
+# matmult_f.gcc
+#
+EXECUTABLE=matmult_f.nvcc
+
+# define the mkn values in the MKN variable
+#
+SIZES="500 1000 2000 4000 8000"
+
+# define the permutation type in PERM
+#
+PERM="gpu4"
+
+# uncomment and set a reasonable BLKSIZE for the blk version
+#
+# BLKSIZE=1
+
+# enable(1)/disable(0) result checking
+export MATMULT_COMPARE=0
+
+# start the collect command with the above settings
+for S in $SIZES
+do
+    MATMULT_COMPARE=0 nvprof --print-gpu-summary ./$EXECUTABLE $PERM $S $S $S
+    #ATMULT_COMPARE=0 ./$EXECUTABLE $PERM $S $S $S
+done
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   21.39 sec.
+    Max Memory :                                 414 MB
+    Average Memory :                             414.00 MB
+    Total Requested Memory :                     7168.00 MB
+    Delta Memory :                               6754.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                15
+    Run time :                                   48 sec.
+    Turnaround time :                            25 sec.
+
+The output (if any) is above this job summary.
+
